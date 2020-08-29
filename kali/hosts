@@ -30,6 +30,18 @@
 
 # Ex 3: A collection of database servers in the 'dbservers' group
 
+#[dbservers]
+#
+#db01.intranet.mydomain.net
+#db02.intranet.mydomain.net
+#10.25.1.56
+#10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+#db-[99:101]-node.example.com
+
 [pi]
 #
 #db01.intranet.mydomain.net
@@ -42,9 +54,5 @@ localhost
 ansible_user=nnnn
 ansible_sudo_pass=QwErTyUi12345
 ansible_password=QwErTyUi12345
-
-# Here's another example of host ranges, this time there are no
-# leading 0s:
-
-#db-[99:101]-node.example.com
-
+sudo_password=QwErTyUi12345
+ansible_python_interpreter=/usr/bin/python3
