@@ -1,5 +1,6 @@
 ---
 - hosts: pi
+  become: yes
   tasks:
     - name: install latest gedit
       become: true
@@ -10,6 +11,9 @@
     - name: install latest nano
       become: true
       apt: name=nano state=latest
+    - name: install latest fossil
+      become: true
+      apt: name=fossil state=latest
     - name: install latest xrdp
       become: true
       apt: name=xrdp state=latest
@@ -22,36 +26,42 @@
     - name: install latest htop
       become: true
       apt: name=htop state=latest
+    - name: install latest python3-pip
+      become: true
+      apt: name=python3-pip state=latest
     - name: install latest remmina
       become: true
       apt: name=remmina state=latest
     - name: install latest vlc
       become: true
-      apt: name=vlc state=latest 
+      apt: name=vlc state=latest
     - name: install latest gparted
       become: true
       apt: name=gparted state=latest
     - name: install latest gimp
       become: true
-      apt: name=gimp state=latest 
+      apt: name=gimp state=latest
     - name: install latest filezilla
       become: true
       apt: name=filezilla state=latest
     - name: install latest audacity
       become: true
-      apt: name=audacity state=latest 
+      apt: name=audacity state=latest
     - name: install latest blender
       become: true
       apt: name=blender state=latest
     - name: install latest calibre
       become: true
-      apt: name=calibre state=latest  
+      apt: name=calibre state=latest
+    - name: install latest python-tk
+      become: true
+      apt: name=python-tk state=latest
     - name: install latest dropbox
       become: true
       apt: name=dropbox state=latest
     - name: install latest steam
       become: true
-      apt: name=steam state=latest   
+      apt: name=steam state=latest
     - name: install latest darktable
       become: true
       apt: name=darktable state=latest
@@ -69,25 +79,25 @@
       apt: name=code state=latest
     - name: install latest wine
       become: true
-      apt: name=wine state=latest   
+      apt: name=wine state=latest
     - name: install latest libreoffice
       become: true
       apt: name=libreoffice state=latest
     - name: install latest kdenlive
       become: true
-      apt: name=kdenlive state=latest    
+      apt: name=kdenlive state=latest
     - name: install latest wireshark
       become: true
       apt: name=wireshark state=latest
     - name: install latest youtube-dl
       become: true
-      apt: name=youtube-dl state=latest  
+      apt: name=youtube-dl state=latest
     - name: install latest terminator
       become: true
       apt: name=terminator state=latest
     - name: install latest nmap
       become: true
-      apt: name=nmap state=latest    
+      apt: name=nmap state=latest
     - name: install latest phpmyadmin
       become: true
       apt: name=phpmyadmin state=latest
@@ -99,13 +109,13 @@
       apt: name=krusader state=latest
     - name: install latest openshot
       become: true
-      apt: name=openshot state=latest   
+      apt: name=openshot state=latest
     - name: install latest obs-studio
       become: true
       apt: name=obs-studio state=latest
     - name: install latest bleachbit
       become: true
-      apt: name=bleachbit state=latest    
+      apt: name=bleachbit state=latest
     - name: install latest virt-manager
       become: true
       apt: name=virt-manager state=latest
@@ -172,6 +182,9 @@
     - name: install latest aview
       become: true
       apt: name=aview state=latest
+    - name: install latest ack
+      become: true
+      apt: name=ack state=latest
     - name: install latest pv
       become: true
       apt: name=pv state=latest
@@ -304,3 +317,631 @@
     - name: install latest ruby gem whenever
       become: true
       gem: name=whenever state=latest
+    - name: Install "coffee-script"   package globally.
+      become: true
+      npm: name=coffee-script  global=yes
+    - name: install express   package globally.
+      become: true
+      npm: name=express global=yes
+    - name: install Redux-Actions   package globally.
+      become: true
+      npm: name=Redux-Actions global=yes
+    - name: install Reselect   package globally.
+      become: true
+      npm: name=Reselect global=yes
+    - name: install Redux-Saga   package globally.
+      become: true
+      npm: name=Redux-Saga global=yes
+    - name: install Redux-Observable   package globally.
+      become: true
+      npm: name=Redux-Observable global=yes
+    - name: install Normalizr   package globally.
+      become: true
+      npm: name=Normalizr global=yes
+    - name: install cloudinary   package globally.
+      become: true
+      npm: name=cloudinary global=yes
+    - name: install make-deno-edition   package globally.
+      become: true
+      npm: name=make-deno-edition global=yes
+    - name: install async.js   package globally.
+      become: true
+      npm: name=async.js global=yes
+    - name: install browserify   package globally.
+      become: true
+      npm: name=browserify global=yes
+    - name: install mongodb   package globally.
+      become: true
+      npm: name=mongodb global=yes
+    - name: install node mysql   package globally.
+      become: true
+      npm: name=node-mysql global=yes
+    - name: install grunt   package globally.
+      become: true
+      npm: name=grunt global=yes
+    - name: install pm2   package globally.
+      become: true
+      npm: name=pm2 global=yes
+    - name: install socket  package globally.
+      become: true
+      npm: name=socket.io global=yes
+    - name: install mocha package globally.
+      become: true
+      npm: name=mocha global=yes
+    - name: install bower   package globally.
+      become: true
+      npm: name=bower global=yes
+    - name: install underscore  package globally.
+      become: true
+      npm: name=underscore global=yes
+    - name: install uglifyjs2  package globally.
+      become: true
+      npm: name=uglifyjs2 global=yes
+    - name: install cheerio  package globally.
+      become: true
+      npm: name=cheerio global=yes
+    - name: install passport  package globally.
+      become: true
+      npm: name=passport global=yes
+    - name: install hapi   package globally.
+      become: true
+      npm: name=hapi global=yes
+    - name: install react   package globally.
+      become: true
+      npm: name=react global=yes
+    - name: install karma  package globally.
+      become: true
+      npm: name=karma global=yes
+    - name: install pug   package globally.
+      become: true
+      npm: name=pug global=yes
+    - name: install less   package globally.
+      become: true
+      npm: name=less global=yes
+    - name: install jshint  package globally.
+      become: true
+      npm: name=jshint global=yes
+    - name: install morgan   package globally.
+      become: true
+      npm: name=morgan global=yes
+    - name: install webpack   package globally.
+      become: true
+      npm: name=webpack global=yes
+    - name: install angular   package globally.
+      become: true
+      npm: name=angular global=yes
+    - name: install marked   package globally.
+      become: true
+      npm: name=marked global=yes
+    - name: install graphicsmagick   package globally.
+      become: true
+      npm: name=graphicsmagick global=yes
+    - name: Install axios   package globally.
+      become: true
+      npm: name=axios global=yes
+    - name: install axios   package globally.
+      become: true
+      npm: name=superagent global=yes
+    - name: install fetch   package globally.
+      become: true
+      npm: name=fetch global=yes
+    - name: install unfetch  package globally.
+      become: true
+      npm: name=unfetch global=yes
+    - name: install isomorphic-unfetch package globally.
+      become: true
+      npm: name=isomorphic-unfetch global=yes
+    - name: install node-fetch package globally.
+      become: true
+      npm: name=node-fetch global=yes
+    - name: install request package globally.
+      become: true
+      npm: name=request global=yes
+    - name: install snyk package globally.
+      become: true
+      npm: name=snyk global=yes
+    - name: install keystone package globally.
+      become: true
+      npm: name=keystone global=yes
+    - name: install migrat package globally.
+      become: true
+      npm: name=migrat global=yes
+    - name: install nextjs package globally.
+      become: true
+      npm: name=nextjs global=yes
+    - name: install sailsjs package globally.
+      become: true
+      npm: name=sails global=yes
+    - name: install meteorjs package globally.
+      become: true
+      npm: name=meteorjs-client global=yes
+    - name: install koajs package globally.
+      become: true
+      npm: name=koajs global=yes
+    - name: install loopback package globally.
+      become: true
+      npm: name=loopback global=yes
+    - name: install derby package globally.
+      become: true
+      npm: name=derby global=yes
+    - name: install meanio package globally.
+      become: true
+      npm: name=meanio global=yes
+    - name: install adonis package globally.
+      become: true
+      npm: name=adonis global=yes
+    - name: install mojito package globally.
+      become: true
+      npm: name=mojito global=yes
+    - name: install feather package globally.
+      become: true
+      npm: name=featherjs global=yes
+    - name: install strapiio package globally.
+      become: true
+      npm: name=strap global=yes
+    - name: install restifyjs package globally.
+      become: true
+      npm: name=restify global=yes
+    - name: install actionherojs package globally.
+      become: true
+      npm: name=actionhero global=yes
+    - name: install sequelize package globally.
+      become: true
+      npm: name=sequelize global=yes
+    - name: install moleculer package globally.
+      become: true
+      npm: name=moleculer global=yes
+    - name: install joi package globally.
+      become: true
+      npm: name=joi global=yes
+    - name: install momentjs package globally.
+      become: true
+      npm: name=momentjs global=yes
+    - name: install loadash package globally.
+      become: true
+      npm: name=loadash global=yes
+    - name: install semver package globally.
+      become: true
+      npm: name=semver global=yes
+    - name: install types package globally.
+      become: true
+      npm: name=types global=yes
+    - name: install babel-runtime package globally.
+      become: true
+      npm: name=babel-runtime global=yes
+    - name: install typescript package globally.
+      become: true
+      npm: name=typescript global=yes
+    - name: install react-bootstrap package globally.
+      become: true
+      npm: name=react-bootstrap global=yes
+    - name: install antd package globally.
+      become: true
+      npm: name=antd global=yes
+    - name: install rebass package globally.
+      become: true
+      npm: name=rebass global=yes
+    - name: install minimist package globally.
+      become: true
+      npm: name=minimist global=yes
+    - name: install dotenv-jquery package globally.
+      become: true
+      npm: name=dotenv global=yes
+    - name: install colors package globally.
+      become: true
+      npm: name=colors global=yes
+    - name: install body-parser package globally.
+      become: true
+      npm: name=body-parser global=yes
+    - name: install glob package globally.
+      become: true
+      npm: name=glob global=yes
+    - name: install rxjs package globally.
+      become: true
+      npm: name=rxjs global=yes
+    - name: install mkdirp package globally.
+      become: true
+      npm: name=mkdirp global=yes
+    - name: install yargs package globally.
+      become: true
+      npm: name=yargs global=yes
+    - name: install inquirer package globally.
+      become: true
+      npm: name=inquirer global=yes
+    - name: install corejs package globally.
+      become: true
+      npm: name=corejs global=yes
+    - name: install classnames   package globally.
+      become: true
+      npm: name=classnames global=yes
+    - name: install vue   package globally.
+      become: true
+      npm: name=vue global=yes
+    - name: install uuid   package globally.
+      become: true
+      npm: name=uuid global=yes
+    - name: install bluebird   package globally.
+      become: true
+      npm: name=bluebird global=yes
+    - name: install async   package globally.
+      become: true
+      npm: name=async global=yes
+    - name: install fs-extra   package globally.
+      become: true
+      npm: name=fs-extra global=yes
+    - name: install debug   package globally.
+      become: true
+      npm: name=debug global=yes
+    - name: install tslib   package globally.
+      become: true
+      npm: name=tslib global=yes
+    - name: install prop-types   package globally.
+      become: true
+      npm: name=prop-types global=yes
+    - name: install react-dom   package globally.
+      become: true
+      npm: name=react-dom global=yes
+    - name: install moment   package globally.
+      become: true
+      npm: name=moment global=yes
+    - name: install chalk   package globally.
+      become: true
+      npm: name=chalk global=yes
+#    - name: Download pip installer
+#      get_url:
+#        url: https://bootstrap.pypa.io/get-pip.py
+#        dest: /tmp/get-pip.py
+    - name: Install tools module
+      pip:
+          name: tools
+          state: latest
+    - name: Install virtualenv module
+      pip:
+        name: virtualenv
+        state: latest
+    - name: Create app folder
+      file:
+        name: /opt/pythonapp
+        state: directory
+        recurse: yes
+    - name: Install s3transfer module
+      pip:
+          name: s3transfer
+          state: latest
+    - name: Install boto3 module
+      pip:
+          name: boto3
+          state: latest
+    - name: Install Mutagen module
+      pip:
+          name: Mutagen
+          state: latest
+    - name: Install Urllib3 module
+      pip:
+          name: Urllib3
+          state: latest
+    - name: Install botocore module
+      pip:
+          name: botocore
+          state: latest
+    - name: Install PyMedia module
+      pip:
+          name: pymedia2-pyrana
+          state: latest
+    - name: Install pyOpenGL module
+      pip:
+          name: pyOpenGL
+          state: latest
+    - name: Install six module
+      pip:
+          name: six
+          state: latest
+    - name: Install MySQLdb module
+      pip:
+          name: MySQLdb-wrapper
+          state: latest
+    - name: Install googlemaps module
+      pip:
+          name: googlemaps
+          state: latest
+    - name: Install scrape module
+      pip:
+          name: scrape
+          state: latest
+    - name: Install mechanize module
+      pip:
+          name: mechanize
+          state: latest
+    - name: Install Selenium module
+      pip:
+          name: Selenium
+          state: latest
+    - name: Install pyquery module
+      pip:
+          name: pyquery
+          state: latest
+    - name: Install pyscreenshot module
+      pip:
+          name: pyscreenshot
+          state: latest
+    - name: Install Pyglet module
+      pip:
+          name: Pyglet
+          state: latest
+    - name: Install Python-dateutil module
+      pip:
+          name: Python-dateutil
+          state: latest
+    - name: Install Docutils module
+      pip:
+          name: Docutils
+          state: latest
+    - name: Install Simplejson module
+      pip:
+          name: Simplejson
+          state: latest
+    - name: Install Colorama module
+      pip:
+          name: Colorama
+          state: latest
+    - name: Install Futures module
+      pip:
+          name: Futures
+          state: latest
+    - name: Install Pytz module
+      pip:
+          name: Pytz
+          state: latest
+    - name: Install Jmespath module
+      pip:
+          name: Jmespath
+          state: latest
+    - name: Install rsa module
+      pip:
+          name: rsa
+          state: latest
+    - name: Install Chardet module
+      pip:
+          name: Chardet
+          state: latest
+    - name: Install Pyasn1 module
+      pip:
+          name: Pyasn1
+          state: latest
+    - name: Install PyYAML module
+      pip:
+          name: PyYAML
+          state: latest
+    - name: Install Idna module
+      pip:
+          name: Idna
+          state: latest
+    - name: Install Certifi module
+      pip:
+          name: Certifi
+          state: latest
+    - name: Install awscli module
+      pip:
+          name: awscli
+          state: latest
+    - name: Install opencv module
+      pip:
+          name: opencv-python
+          state: latest
+    - name: Install pytil module
+      pip:
+          name: pytil
+          state: latest
+    - name: Install NetworkX module
+      pip:
+          name: NetworkX
+          state: latest
+    - name: Install TextBlob module
+      pip:
+          name: TextBlob
+          state: latest
+    - name: Install plotly module
+      pip:
+          name: plotly
+          state: latest
+    - name: Install pydot module
+      pip:
+          name: pydot
+          state: latest
+    - name: Install pmw module
+      pip:
+          name: pmw
+          state: latest
+    - name: Install Mahotas module
+      pip:
+          name: Mahotas
+          state: latest
+    - name: Install zappa module
+      pip:
+          name: zappa
+          state: latest
+    - name: Install ipython module
+      pip:
+          name: ipython
+          state: latest
+    - name: Install imbalanced-learn module
+      pip:
+          name: imbalanced-learn
+          state: latest
+    - name: Install scrapy module
+      pip:
+          name: scrapy
+          state: latest
+    - name: Install xgboost module
+      pip:
+          name: xgboost
+          state: latest
+    - name: Install SQLAlchemy module
+      pip:
+          name: SQLAlchemy
+          state: latest
+    - name: Install Delorean module
+      pip:
+          name: Delorean
+          state: latest
+    - name: Install BeautifulSoup module
+      pip:
+          name: bs4
+          state: latest
+    - name: Install tkinter module
+      pip:
+          name: tk
+          state: latest
+    - name: Install Bokeh module
+      pip:
+          name: Bokeh
+          state: latest
+    - name: Install Poetry module
+      pip:
+          name: Poetry
+          state: latest
+    - name: Install Gensim module
+      pip:
+          name: Gensim
+          state: latest
+    - name: Install cirq module
+      pip:
+          name: cirq
+          state: latest
+    - name: Install luminoth module
+      pip:
+          name: luminoth
+          state: latest
+    - name: Install pandas module
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pytorch module
+      pip:
+          name: torch
+          state: latest
+    - name: Install pytorch2 module
+      pip:
+          name: torchvision
+          state: latest
+    - name: Install pyqt5 module
+      pip:
+          name: pyqt5
+          state: latest
+    - name: Install nltk module
+      pip:
+          name: nltk
+          state: latest
+    - name: Install arrow module
+      pip:
+          name: arrow
+          state: latest
+    - name: Install fire module
+      pip:
+          name: fire
+          state: latest
+    - name: Install Ramp module
+      pip:
+          name: Ramp
+          state: latest
+    - name: Install Pipenv module
+      pip:
+          name: Pipenv
+          state: latest
+    - name: Install Bob module
+      pip:
+          name: Bob
+          state: latest
+    - name: Install PyBrain module
+      pip:
+          name: PyBrain
+          state: latest
+    - name: Install Keras module
+      pip:
+          name: Keras
+          state: latest
+    - name: Install Dash module
+      pip:
+          name: Dash
+          state: latest
+    - name: Install Matplotlib module
+      pip:
+          name: Matplotlib
+          state: latest
+    - name: Install Seaborn module
+      pip:
+          name: Seaborn
+          state: latest
+    - name: Install SymPy module
+      pip:
+          name: SymPy
+          state: latest
+    - name: Install Chainer module
+      pip:
+          name: Chainer
+          state: latest
+    - name: Install tensorflow module
+      pip:
+        name: tensorflow
+        state: latest
+    - name: Create virtualenv for app
+      pip:
+        name: bottle
+        state: latest
+        virtualenv: /opt/pythonapp/appenv
+    - name: Install Scikit-Learn module
+      pip:
+          name: scikit-Learn
+          state: latest
+    - name: Install numpy module
+      pip:
+          name: numpy
+          state: latest
+    - name: Install keras module
+      pip:
+          name: keras
+          state: latest
+    - name: Install lightgbm module
+      pip:
+          name: lightgbm
+          state: latest
+    - name: Install eli5 module
+      pip:
+          name: eli5
+          state: latest
+    - name: Install scipy module
+      pip:
+          name: scipy
+          state: latest
+    - name: Install theano module
+      pip:
+          name: theano
+          state: latest
+    - name: Install pandas module
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pendulum module
+      pip:
+          name: pendulum
+          state: latest
+    - name: Install pillow module
+      pip:
+          name: pillow
+          state: latest
+    - name: Install Pytest module
+      pip:
+          name: Pytest
+          state: latest
+    - name: Install Requests module
+      pip:
+          name: Requests
+          state: latest
+    - name: Install MoviePy module
+      pip:
+          name: MoviePy
+          state: latest
+    - name: Install thefuck module
+      pip:
+          name: thefuck
+          state: latest
