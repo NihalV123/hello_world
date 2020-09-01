@@ -1,3 +1,7 @@
+MOVE LF TO USR LOCAL BIN
+p10k.zsh in home cache
+all plugins in home ohmyzsh pluins
+
 Server setup
 —————————
 Unriad
@@ -13,7 +17,7 @@ Mac client No gpu x2 working and  backup
 Linux client gpu x4  — AMD manjaro  Nvidia  pop os 
 opensuse and silverblue Ansible 
 
-Try Mac with 280x. Working
+Try Mac with 280x. Workings
 ——————————————
 Esxi
 
@@ -51,8 +55,8 @@ Kali
 Popos
 macOS
 Windows server
-Windows 10 
+Windows 10
 ————————————
 Kali metapackageas off-line
 Mac linux desktop wallaper video
-ESXi disable usb check on startup 
+ESXi disable usb check on startup

@@ -7,6 +7,9 @@ ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/nnnn/.oh-my-zsh"
 
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -30,7 +33,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
- DISABLE_UPDATE_PROMPT="true"
+DISABLE_UPDATE_PROMPT="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -71,7 +74,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
- HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 
 prompt_zsh_internet_signal(){
@@ -91,14 +94,14 @@ prompt_codetalk() {
     local content='\uF17C c{}deTalk'
     $1_prompt_segment "$0" "$2" "black" "white" "$content" "#"
 }
-
+POWERLEVEL9K_DEBUG_ISSUE_315=true
 gitpush() {
     git add .
     git commit -m "$*"
     git push
 }
 gitclone() {
-   sudo git clone "$*"
+  sudo git clone "$*"
 }
 swo() {
     sudo swapon /var/swapfile
@@ -106,45 +109,6 @@ swo() {
 alias gpush=gitpush
 alias gcl=gitclone
 alias swo=swo
-
-POWERLEVEL10k_PROMPT_ON_NEWLINE=true
-POWERLEVEL10k_PROMPT_ADD_NEWLINE=false
-POWERLEVEL10k_RPROMPT_ON_NEWLINE=true
-POWERLEVEL10k_SHORTEN_DIR_LENGTH=2
-POWERLEVEL10k_SHORTEN_STRATEGY="truncate_beginning"
-POWERLEVEL10k_RVM_BACKGROUND="black"
-POWERLEVEL10k_RVM_FOREGROUND="249"
-POWERLEVEL10k_RVM_VISUAL_IDENTIFIER_COLOR="red"
-POWERLEVEL10k_TIME_BACKGROUND="black"
-POWERLEVEL10k_TIME_FOREGROUND="white"
-POWERLEVEL10k_TIME_FORMAT="\UF43A %D{%I:%M  \UF133  %m.%d.%y}"
-POWERLEVEL10k_RVM_BACKGROUND="black"
-POWERLEVEL10k_RVM_FOREGROUND="249"
-POWERLEVEL10k_RVM_VISUAL_IDENTIFIER_COLOR="red"
-POWERLEVEL10k_STATUS_VERBOSE=false
-POWERLEVEL10k_VCS_CLEAN_FOREGROUND='black'
-POWERLEVEL10k_VCS_CLEAN_BACKGROUND='green'
-POWERLEVEL10k_VCS_UNTRACKED_FOREGROUND='black'
-POWERLEVEL10k_VCS_UNTRACKED_BACKGROUND='orange'
-POWERLEVEL10k_VCS_MODIFIED_FOREGROUND='black'
-POWERLEVEL10k_VCS_MODIFIED_BACKGROUND='yellow'
-POWERLEVEL10k_VCS_HIDE_TAGS='false'
-POWERLEVEL10k_COMMAND_EXECUTION_TIME_BACKGROUND='black'
-POWERLEVEL10k_COMMAND_EXECUTION_TIME_FOREGROUND='white'
-POWERLEVEL10k_FOLDER_ICON=''
-POWERLEVEL10k_STATUS_OK_IN_NON_VERBOSE=true
-POWERLEVEL10k_STATUS_VERBOSE=false
-POWERLEVEL10k_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL10k_VCS_UNTRACKED_ICON='\u25CF'
-POWERLEVEL10k_VCS_UNSTAGED_ICON='\u00b1'
-POWERLEVEL10k_VCS_INCOMING_CHANGES_ICON='\u2193'
-POWERLEVEL10k_VCS_OUTGOING_CHANGES_ICON='\u2191'
-POWERLEVEL10k_VCS_COMMIT_ICON="\uf417"
-POWERLEVEL10k_MULTILINE_FIRST_PROMPT_PREFIX="%F{blue}\u256D\u2500%f"
-POWERLEVEL10k_MULTILINE_LAST_PROMPT_PREFIX="%F{blue}\u2570\uf460%f "
-#POWERLEVEL10k_LEFT_PROMPT_ELEMENTS=(codetalk context custom_internet_signal  ssh root_indicator dir dir_writable vcs)
-POWERLEVEL10k_LEFT_PROMPT_ELEMENTS=(os_icon context custom_internet_signal  ssh root_indicator dir dir_writable vcs)
-POWERLEVEL10k_RIGHT_PROMPT_ELEMENTS=(command_execution_time  status  custom_battery_status_joined zsh_internet_signal time)
 HIST_STAMPS="dd/mm/yyyy"
 DISABLE_UPDATE_PROMPT=true
 
@@ -409,11 +373,10 @@ yum
 z
 zeus
 zsh-navigation-tools
+zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
-
-
 
 # User configuration
 
@@ -440,11 +403,21 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-HISTSIZE=10000
-SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.
 
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+autoload -U select-quoted
+zle -N select-quoted
+for m in visual viopp; do
+  for c in {a,i}{\',\",\`}; do
+    bindkey -M $m $c select-quoted
+  done
+done
+
 
 # Use lf to switch directories and bind it to ctrl-o
 lfcd () {
@@ -464,6 +437,12 @@ alias lc='colorls -lA --sd'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -472,3 +451,4 @@ rig| toilet -f term -F border --gay
 chuck_cow | lolcat
 fortune | cowsay | lolcat
 espeak "Ready"
+source /home/nnnn/Downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
