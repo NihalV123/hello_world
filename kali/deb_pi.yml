@@ -2,348 +2,213 @@
 - hosts: pi
   become: yes
   tasks:
-    - name: install latest gedit
+    - name: install latest maven
       become: true
-      apt: name=gedit  state=latest
-    - name: install latest neofetch
+      apt: name=maven state=latest
+    - name: download composer
+      get_url:
+        url: https://getcomposer.org/installer
+        dest: /tmp/installer
+      tags: composer
+    - name: install composer
+      shell: cat /tmp/installer | php -- --install-dir=/usr/local/bin
+      args:
+        creates: /usr/local/bin/composer
+      tags: composer
+    - name: rename composer.phar to composer
+      shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer
+      args:
+        creates: /usr/local/bin/composer
+      tags: composer
+    - name: make composer executable
+      file:
+        path: /usr/local/bin/composer
+        mode: a+x
+        state: file
+      tags: composer
+    - name: install ng-semantic package globally.
       become: true
-      apt: name=neofetch  state=latest
-    - name: install latest nano
+      npm: name=ng-semantic global=yes
+    - name: install clarity package globally.
       become: true
-      apt: name=nano state=latest
-    - name: install latest fossil
+      npm: name=clarity global=yes
+    - name: install NG-Lightning package globally.
       become: true
-      apt: name=fossil state=latest
-    - name: install latest xrdp
+      npm: name=ng-lightning global=yes
+    - name: install PrimeNG package globally.
       become: true
-      apt: name=xrdp state=latest
-    - name: install latest proot
+      npm: name=primeng global=yes
+    - name: install ignite-ui package globally.
       become: true
-      apt: name=proot state=latest
-    - name: install latest git
+      npm: name=ignite-ui global=yes
+    - name: install ng-zorro-antd package globally.
       become: true
-      apt: name=git state=latest
-    - name: install latest htop
+      npm: name=ng-zorro-antd global=yes
+    - name: install recompose package globally.
       become: true
-      apt: name=htop state=latest
-    - name: install latest python3-pip
+      npm: name=recompose global=yes
+    - name: install redux-thunk package globally.
       become: true
-      apt: name=python3-pip state=latest
-    - name: install latest remmina
+      npm: name=redux-thunk global=yes
+    - name: install shave package globally.
       become: true
-      apt: name=remmina state=latest
-    - name: install latest vlc
+      npm: name=shave global=yes
+    - name: install stencil package globally.
       become: true
-      apt: name=vlc state=latest
-    - name: install latest gparted
+      npm: name=stencil global=yes
+    - name: install  lit-element package globally.
       become: true
-      apt: name=gparted state=latest
-    - name: install latest gimp
+      npm: name=lit-element global=yes
+    - name: install  lit-html package globally.
       become: true
-      apt: name=gimp state=latest
-    - name: install latest filezilla
+      npm: name=lit-html global=yes
+    - name: install voca package globally.
       become: true
-      apt: name=filezilla state=latest
-    - name: install latest audacity
+      npm: name=voca global=yes
+    - name: install aurelia-cli package globally.
       become: true
-      apt: name=audacity state=latest
-    - name: install latest blender
+      npm: name=aurelia-cli global=yes
+    - name: install cordova package globally.
       become: true
-      apt: name=blender state=latest
-    - name: install latest calibre
+      npm: name=cordova global=yes
+    - name: install animejs package globally.
       become: true
-      apt: name=calibre state=latest
-    - name: install latest python-tk
+      npm: name=animejs global=yes
+    - name: install aos package globally.
       become: true
-      apt: name=python-tk state=latest
-    - name: install latest dropbox
+      npm: name=aos global=yes
+    - name: install chartjs package globally.
       become: true
-      apt: name=dropbox state=latest
-    - name: install latest steam
+      npm: name=chartjs global=yes
+    - name: install choreographer-js package globally.
       become: true
-      apt: name=steam state=latest
-    - name: install latest darktable
+      npm: name=choreographer-js global=yes
+    - name: install cleave.js package globally.
       become: true
-      apt: name=darktable state=latest
-    - name: install latest krita
+      npm: name=cleave.js global=yes
+    - name: install d3 package globally.
       become: true
-      apt: name=krita state=latest                             
-    - name: install latest transmission
+      npm: name=d3 global=yes
+    - name: install ember-cli package globally.
       become: true
-      apt: name=transmission state=latest
-    - name: install latest anki
+      npm: name=ember-cli global=yes
+    - name: install @glimmer/component package globally.
       become: true
-      apt: name=anki state=latest  
-    - name: install latest code
+      npm: name=@glimmer/component  global=yes
+    - name: install @glimmer/tracking package globally.
       become: true
-      apt: name=code state=latest
-    - name: install latest wine
+      npm: name=@glimmer/tracking global=yes
+    - name: install granim package globally.
       become: true
-      apt: name=wine state=latest
-    - name: install latest libreoffice
+      npm: name=granim global=yes
+    - name: install  multiple.js package globally.
       become: true
-      apt: name=libreoffice state=latest
-    - name: install latest kdenlive
+      npm: name=multiple.js global=yes
+    - name: install omniscient package globally.
       become: true
-      apt: name=kdenlive state=latest
-    - name: install latest wireshark
+      npm: name=omniscient global=yes
+    - name: install parsleyjs package globally.
       become: true
-      apt: name=wireshark state=latest
-    - name: install latest youtube-dl
+      npm: name=parsleyjs global=yes
+    - name: install  @popperjs/core package globally.
       become: true
-      apt: name=youtube-dl state=latest
-    - name: install latest terminator
+      npm: name=@popperjs/core global=yes
+    - name: install premonish package globally.
       become: true
-      apt: name=terminator state=latest
-    - name: install latest nmap
+      npm: name=premonish global=yes
+    - name: install  slick-carousel package globally.
       become: true
-      apt: name=nmap state=latest
-    - name: install latest phpmyadmin
+      npm: name=slick-carousel global=yes
+    - name: install taffy package globally.
       become: true
-      apt: name=phpmyadmin state=latest
-    - name: install latest zsh
+      npm: name=taffy global=yes
+    - name: install duplicate-package-checker-webpack-plugin package globally.
       become: true
-      apt: name=zsh state=latest     
-    - name: install latest krusader
+      npm: name=duplicate-package-checker-webpack-plugin global=yes
+    - name: install ts-loader package globally.
       become: true
-      apt: name=krusader state=latest
-    - name: install latest openshot
+      npm: name=ts-loader global=yes
+    - name: install webpack-merge package globally.
       become: true
-      apt: name=openshot state=latest
-    - name: install latest obs-studio
+      npm: name=webpack-merge global=yes
+    - name: install closure-webpack-plugin package globally.
       become: true
-      apt: name=obs-studio state=latest
-    - name: install latest bleachbit
+      npm: name=closure-webpack-plugin global=yes
+    - name: install  webpack-bundle-analyzer package globally.
       become: true
-      apt: name=bleachbit state=latest
-    - name: install latest virt-manager
+      npm: name=webpack-bundle-analyzer global=yes
+    - name: install open-browser-webpack-plugin package globally.
       become: true
-      apt: name=virt-manager state=latest
-    - name: install latest baobab
+      npm: name=open-browser-webpack-plugin global=yes
+    - name: install webpack-dashboard package globally.
       become: true
-      apt: name=baobab state=latest   
-    - name: install latest ruby-full
+      npm: name=webpack-dashboard global=yes
+    - name: install fork-ts-checker-webpack-plugin package globally.
       become: true
-      apt: name=ruby-full state=latest
-    - name: install latest gem
+      npm: name=fork-ts-checker-webpack-plugin global=yes
+    - name: install parallel-webpack package globally.
       become: true
-      apt: name=gem state=latest  
-    - name: install latest nodejs
+      npm: name=parallel-webpack global=yes
+    - name: install cache-loader package globally.
       become: true
-      apt: name=nodejs state=latest
-    - name: install latest fdm
+      npm: name=cache-loader global=yes
+    - name: install webpack-hot-middleware package globally.
       become: true
-      apt: name=fdm state=latest         
-    - name: install latest voicechange01
+      npm: name=webpack-hot-middleware global=yes
+    - name: install cache-loader package globally.
       become: true
-      apt: name=qjackctl state=latest
-    - name: install latest voicechange02
+      npm: name=cache-loader global=yes
+    - name: install dllplugin package globally.
       become: true
-      apt: name=jack-rack state=latest
-    - name: install latest voicehange03
+      npm: name=webpack-build-dll-plugin global=yes
+    - name: install friendly-errors-webpack-plugin package globally.
       become: true
-      apt: name=tap-plugins state=latest
-    - name: install latest cowsay
+      npm: name=friendly-errors-webpack-plugin global=yes
+    - name: install webpack package globally.
       become: true
-      apt: name=cowsay state=latest
-    - name: install latest sl
+      npm: name=webpack global=yes
+    - name: install webpack-cli package globally.
       become: true
-      apt: name=sl state=latest
-    - name: install latest npm
+      npm: name=webpack-cli global=yes
+    - name: install webpack-dev-server package globally.
       become: true
-      apt: name=npm state=latest
-    - name: install latest fortune
+      npm: name=webpack-dev-server global=yes
+    - name: install html-webpack-plugin package globally.
       become: true
-      apt: name=fortune state=latest
-    - name: install latest xcowsay
+      npm: name=html-webpack-plugin global=yes
+    - name: install css-loader package globally.
       become: true
-      apt: name=xcowsay state=latest
-    - name: install latest toilet
+      npm: name=css-loader global=yes
+    - name: install  style-loader package globally.
       become: true
-      apt: name=toilet state=latest
-    - name: install latest cmatrix
+      npm: name=style-loader global=yes
+    - name: install sass-loader  package globally.
       become: true
-      apt: name=cmatrix state=latest
-    - name: install latest oneko
+      npm: name=sass-loader  global=yes
+    - name: install sass package globally.
       become: true
-      apt: name=oneko state=latest
-    - name: install latest espeak
+      npm: name=sass global=yes
+    - name: install @babel/core package globally.
       become: true
-      apt: name=espeak state=latest
-    - name: install latest funny-manpages
+      npm: name=@babel/core global=yes
+    - name: install babel-loader  package globally.
       become: true
-      apt: name=funny-manpages state=latest
-    - name: install latest lolcat
+      npm: name=babel-loader  global=yes
+    - name: install moment package globally.
       become: true
-      apt: name=lolcat state=latest
-    - name: install latest rig
+      npm: name=moment global=yes
+    - name: install webpack-bundle-analyzer package globally.
       become: true
-      apt: name=rig state=latest
-    - name: install latest aview
+      npm: name=webpack-bundle-analyzer global=yes
+    - name: install offline-plugin package globally.
       become: true
-      apt: name=aview state=latest
-    - name: install latest ack
+      npm: name=offline-plugin global=yes
+    - name: install webpack-pwa-manifest package globally.
       become: true
-      apt: name=ack state=latest
-    - name: install latest pv
+      npm: name=webpack-pwa-manifest global=yes
+    - name: install mobx package globally.
       become: true
-      apt: name=pv state=latest
-    - name: install latest yarn
-      become: true
-      apt: name=yarn state=latest
-    - name: install latest thunar
-      become: true
-      apt: name=thunar state=latest
-    - name: install latest build-essential
-      become: true
-      apt: name=build-essential state=latest
-    - name: install latest zlib1g-dev
-      become: true
-      apt: name=zlib1g-dev state=latest
-    - name: install latest ruby gem rake
-      become: true
-      gem: name=rake state=latest
-    - name: install latest ruby gem Rubocop
-      become: true
-      gem: name=rubocop state=latest
-    - name: install latest ruby gem Overcommit
-      become: true
-      gem: name=overcommit state=latest
-    - name: install latest ruby gem Better_errors
-      become: true
-      gem: name=better_errors state=latest
-    - name: install latest ruby gem Byebug
-      become: true
-      gem: name=byebug state=latest
-    - name: install latest ruby gem RSpec
-      become: true
-      gem: name=rspec state=latest
-    - name: install latest ruby gem  Parallel_tests
-      become: true
-      gem: name=parallel_tests state=latest
-    - name: install latest ruby gem Simplecov
-      become: true
-      gem: name=simplecov state=latest
-    - name: install latest ruby gem Faker
-      become: true
-      gem: name=faker state=latest
-    - name: install latest ruby gem Mina
-      become: true
-      gem: name=mina state=latest
-    - name: install latest ruby gem Devise
-      become: true
-      gem: name=devise state=latest
-    - name: install latest ruby gem CanCanCan
-      become: true
-      gem: name=cancancan state=latest
-    - name: install latest ruby gem OmniAuth
-      become: true
-      gem: name=omniauth state=latest
-    - name: install latest ruby gem Carrierwave
-      become: true
-      gem: name=carrierwave state=latest
-    - name: install latest ruby gem Carrierwave_backgrounder
-      become: true
-      gem: name=carrierwave_backgrounder state=latest
-    - name: install latest ruby gem Elasticsearch
-      become: true
-      gem: name=elasticsearch state=latest
-    - name: install latest ruby gem Activeadmin
-      become: true
-      gem: name=activeadmin state=latest
-    - name: install latest ruby gem Administrate
-      become: true
-      gem: name=administrate state=latest
-    - name: install latest ruby gem Sidekiq
-      become: true
-      gem: name=sidekiq state=latest
-    - name: install latest ruby gem Simple_form
-      become: true
-      gem: name=simple_form state=latest
-    - name: install latest ruby gem Friendly_Id
-      become: true
-      gem: name=friendly_id state=latest
-    - name: install latest ruby gem Dotenv-rails
-      become: true
-      gem: name=dotenv-rails state=latest
-    - name: install latest ruby gem Slim
-      become: true
-      gem: name=slim state=latest
-    - name: install latest ruby gem Draper
-      become: true
-      gem: name=draper state=latest
-    - name: install latest ruby gem Redis
-      become: true
-      gem: name=redis state=latest
-    - name: install latest ruby gem Annotate
-      become: true
-      gem: name=annotate state=latest
-    - name: install latest ruby gem Pg_search
-      become: true
-      gem: name=pg_search state=latest
-    - name: install latest ruby gem Wicked
-      become: true
-      gem: name=wicked state=latest
-    - name: install latest ruby gem Config
-      become: true
-      gem: name=config state=latest
-    - name: install latest ruby gem Impressionis
-      become: true
-      gem: name=impressionist state=latest
-    - name: install latest ruby gem chartkick
-      become: true
-      gem: name=chartkick state=latest
-    - name: install latest ruby gem metatags
-      become: true
-      gem: name=metatags state=latest
-    - name: install latest ruby gem pay
-      become: true
-      gem: name=pay state=latest
-    - name: install latest ruby gem redcarpet
-      become: true
-      gem: name=redcarpet state=latest
-    - name: install latest ruby gem actsasvotable
-      become: true
-      gem: name=acts_as_votable state=latest
-    - name: install latest ruby gem pry
-      become: true
-      gem: name=pry state=latest
-    - name: install latest ruby gem unread
-      become: true
-      gem: name=unread state=latest
-    - name: install latest ruby gem pagy
-      become: true
-      gem: name=pagy state=latest
-    - name: install latest ruby gem whenever
-      become: true
-      gem: name=whenever state=latest
-    - name: Install "coffee-script"   package globally.
-      become: true
-      npm: name=coffee-script  global=yes
-    - name: install express   package globally.
-      become: true
-      npm: name=express global=yes
-    - name: install Redux-Actions   package globally.
-      become: true
-      npm: name=Redux-Actions global=yes
-    - name: install Reselect   package globally.
-      become: true
-      npm: name=Reselect global=yes
-    - name: install Redux-Saga   package globally.
-      become: true
-      npm: name=Redux-Saga global=yes
-    - name: install Redux-Observable   package globally.
-      become: true
-      npm: name=Redux-Observable global=yes
-    - name: install Normalizr   package globally.
-      become: true
-      npm: name=Normalizr global=yes
-    - name: install cloudinary   package globally.
-      become: true
-      npm: name=cloudinary global=yes
-    - name: install make-deno-edition   package globally.
-      become: true
-      npm: name=make-deno-edition global=yes
+      npm: name=mobx global=yes
     - name: install async.js   package globally.
       become: true
       npm: name=async.js global=yes
@@ -389,9 +254,6 @@
     - name: install react   package globally.
       become: true
       npm: name=react global=yes
-    - name: install karma  package globally.
-      become: true
-      npm: name=karma global=yes
     - name: install pug   package globally.
       become: true
       npm: name=pug global=yes
@@ -416,7 +278,7 @@
     - name: install graphicsmagick   package globally.
       become: true
       npm: name=graphicsmagick global=yes
-    - name: Install axios   package globally.
+    - name: install axios   package globally.
       become: true
       npm: name=axios global=yes
     - name: install axios   package globally.
@@ -515,9 +377,366 @@
     - name: install react-bootstrap package globally.
       become: true
       npm: name=react-bootstrap global=yes
-    - name: install antd package globally.
+    - name: install  jquery package globally.
       become: true
-      npm: name=antd global=yes
+      npm: name=jquery global=yes
+    - name: install mock-rest-server   package globally.
+      become: true
+      npm: name=mock-rest-server global=yes
+    - name: install generator-http-fake-backend   package globally.
+      become: true
+      npm: name=generator-http-fake-backend global=yes
+    - name: install json-reaper-backend   package globally.
+      become: true
+      npm: name=json-reaper-backend global=yes
+    - name: install generate-strings  package globally.
+      become: true
+      npm: name=generate-strings global=yes
+    - name: install fastify-twitch-ebs-tools   package globally.
+      become: true
+      npm: name=fastify-twitch-ebs-tools global=yes
+    - name: install access-right   package globally.
+      become: true
+      npm: name=access-right global=yes
+    - name: install @compodoc/compodoc   package globally.
+      become: true
+      npm: name=@compodoc/compodoc global=yes
+    - name: install grunt-jsdoc   package globally.
+      become: true
+      npm: name=grunt-jsdoc global=yes
+    - name: install swagger-ui-express   package globally.
+      become: true
+      npm: name=swagger-ui-express global=yes
+    - name: install typedoc   package globally.
+      become: true
+      npm: name=typedoc global=yes
+    - name: install gray-matter  package globally.
+      become: true
+      npm: name=gray-matter global=yes
+    - name: install react-styleguidist globally.
+      become: true
+      npm: name=react-styleguidist global=yes
+    - name: install docs-searchbar.js   package globally.
+      become: true
+      npm: name=docs-searchbar.js global=yes
+    - name: install jtest package globally.
+      become: true
+      npm: name=jtest global=yes
+    - name: install fabric   package globally.
+      become: true
+      npm: name=fabric global=yes
+    - name: install gestalt  package globally.
+      become: true
+      npm: name=gestalt global=yes
+    - name: install react-components  package globally.
+      become: true
+      npm: name=react-components global=yes
+    - name: install react-styled-grid  package globally.
+      become: true
+      npm: name=react-styled-grid global=yes
+    - name: install iview  package globally.
+      become: true
+      npm: name=iview  global=yes
+    - name: install vuetify  package globally.
+      become: true
+      npm: name=vuetify global=yes
+    - name: install @turtlemint/mint-ui package globally.
+      become: true
+      npm: name=@turtlemint/mint-ui global=yes
+    - name: install apidoc  package globally.
+      become: true
+      npm: name=apidoc global=yes
+    - name: install docsify  package globally.
+      become: true
+      npm: name=docsify global=yes
+    - name: install condense-newlines  package globally.
+      become: true
+      npm: name=condense-newlines global=yes
+    - name: install doctoc  package globally.
+      become: true
+      npm: name=doctoc global=yes
+    - name: install chai   package globally.
+      become: true
+      npm: name=chai global=yes
+    - name: install karma  package globally.
+      become: true
+      npm: name=karma global=yes
+    - name: install jest   package globally.
+      become: true
+      npm: name=jest global=yes
+    - name: install @testing-library/react   package globally.
+      become: true
+      npm: name=@testing-library/react global=yes
+    - name: install @testing-library/dom  package globally.
+      become: true
+      npm: name=@testing-library/dom global=yes
+    - name: install supertest   package globally.
+      become: true
+      npm: name=supertest global=yes
+    - name: install enzyme   package globally.
+      become: true
+      npm: name=enzyme global=yes
+    - name: install browserstack   package globally.
+      become: true
+      npm: name=browserstack global=yes
+    - name: install selenium-webdriver   package globally.
+      become: true
+      npm: name=selenium-webdriver global=yes
+    - name: install nyc   package globally.
+      become: true
+      npm: name=nyc global=yes
+    - name: install deep-eql   package globally.
+      become: true
+      npm: name=deep-eql global=yes
+    - name: install react-toolbox   package globally.
+      become: true
+      npm: name=react-toolbox global=yes
+    - name: install rsuite  package globally.
+      become: true
+      npm: name=rsuite global=yes
+    - name: install belle  package globally.
+      become: true
+      npm: name=belle global=yes
+    - name: install @react-md/utils   package globally.
+      become: true
+      npm: name=@react-md/utils global=yes
+    - name: install  gestalt package globally.
+      become: true
+      npm: name=gestalt global=yes
+    - name: install @fluentui/react package globally.
+      become: true
+      npm: name=@fluentui/react global=yes
+    - name: install onsenui package globally.
+      become: true
+      npm: name=onsenui global=yes
+    - name: install react-virtualized package globally.
+      become: true
+      npm: name=react-virtualized global=yes
+    - name: install blueprint package globally.
+      become: true
+      npm: name=blueprint global=yes
+    - name: install react-desktop package globally.
+      become: true
+      npm: name=react-desktop global=yes
+    - name: install react-spinners package globally.
+      become: true
+      npm: name=react-spinners global=yes
+    - name: install grommet package globally.
+      become: true
+      npm: name=grommet global=yes
+    - name: install styled-components package globally.
+      become: true
+      npm: name=styled-components global=yes
+    - name: install simple-statistics package globally.
+      become: true
+      npm: name=simple-statistics global=yes
+    - name: install parse package globally.
+      become: true
+      npm: name=parse global=yes
+    - name: install mathjs package globally.
+      become: true
+      npm: name=mathjs global=yes
+    - name: install is-number package globally.
+      become: true
+      npm: name=is-number global=yes
+    - name: install long package globally.
+      become: true
+      npm: name=long global=yes
+    - name: install quasar package globally.
+      become: true
+      npm: name=quasar global=yes
+    - name: install bootstrap-vue  package globally.
+      become: true
+      npm: name=bootstrap-vue global=yes
+    - name: install vue-material  package globally.
+      become: true
+      npm: name=vue-material global=yes
+    - name: install vuesax  package globally.
+      become: true
+      npm: name=vuesax global=yes
+    - name: install @geops/react-ui   package globally.
+      become: true
+      npm: name=@geops/react-ui global=yes
+    - name: install vuikit  package globally.
+      become: true
+      npm: name=vuikit global=yes
+    - name: install buefy  package globally.
+      become: true
+      npm: name=buefy global=yes
+    - name: install vux  package globally.
+      become: true
+      npm: name=vux global=yes
+    - name: install vux package globally.
+      become: true
+      npm: name=vux global=yes
+    - name: install vue-router package globally.
+      become: true
+      npm: name=vue-router global=yes
+    - name: install weex  package globally.
+      become: true
+      npm: name=weex global=yes
+    - name: install vee-validate  package globally.
+      become: true
+      npm: name=vee-validate global=yes
+    - name: install vuestic-ui  package globally.
+      become: true
+      npm: name=vuestic-ui global=yes
+    - name: install vuestic-ui  package globally.
+      become: true
+      npm: name=vuestic-ui global=yes
+    - name: install npm package globally.
+      become: true
+      npm: name=npm global=yes
+    - name: install primereact  package globally.
+      become: true
+      npm: name=primereact global=yes
+    - name: install react-router  package globally.
+      become: true
+      npm: name=react-router global=yes
+    - name: install ant-design  package globally.
+      become: true
+      npm: name=ant-design global=yes
+    - name: install tailwind-react-ui  package globally.
+      become: true
+      npm: name=tailwind-react-ui global=yes
+    - name: install semantic-ui-react   package globally.
+      become: true
+      npm: name=semantic-ui-react global=yes
+    - name: install react-motion   package globally.
+      become: true
+      npm: name=react-motion global=yes
+    - name: install react-native-reanimated   package globally.
+      become: true
+      npm: name=react-native-reanimated global=yes
+    - name: install react-hook-form  package globally.
+      become: true
+      npm: name=react-hook-form global=yes
+    - name: install eslint-plugin-ecmascript-compat  package globally.
+      become: true
+      npm: name=eslint-plugin-ecmascript-compat global=yes
+    - name: install eagle.js package globally.
+      become: true
+      npm: name=eagle.js global=yes
+    - name: install vuelidate package globally.
+      become: true
+      npm: name=vuelidate global=yes
+    - name: install filepond package globally.
+      become: true
+      npm: name=filepond global=yes
+    - name: install vue-multiselect package globally.
+      become: true
+      npm: name=vue-multiselect global=yes
+    - name: install vue-autosuggest  package globally.
+      become: true
+      npm: name=vue-autosuggest global=yes
+    - name: install poi  package globally.
+      become: true
+      npm: name=poi global=yes
+    - name: install keen-ui package globally.
+      become: true
+      npm: name=keen-ui global=yes
+    - name: install cube-ui  package globally.
+      become: true
+      npm: name=cube-ui global=yes
+    - name: install react-stripe-elements  package globally.
+      become: true
+      npm: name=react-stripe-elements global=yes
+    - name: install @material-ui/core  package globally.
+      become: true
+      npm: name=@material-ui/core global=yes
+    - name: install evergreen-ui   package globally.
+      become: true
+      npm: name=evergreen-ui global=yes
+    - name: install @chakra-ui/vue  package globally.
+      become: true
+      npm: name=@chakra-ui/vue global=yes
+    - name: install redux-form  package globally.
+      become: true
+      npm: name=redux-form global=yes
+    - name: install redux-form-validators  package globally.
+      become: true
+      npm: name=redux-form-validators global=yes
+    - name: install react-dnd  package globally.
+      become: true
+      npm: name=react-dnd global=yes
+    - name: install react-intl   package globally.
+      become: true
+      npm: name=react-intl global=yes
+    - name: install date-arithmetic package globally.
+      become: true
+      npm: name=date-arithmetic global=yes
+    - name: install num2fraction package globally.
+      become: true
+      npm: name=num2fraction global=yes
+    - name: install vue-js-modal package globally.
+      become: true
+      npm: name=vue-js-modal global=yes
+    - name: install cropperjs   package globally.
+      become: true
+      npm: name=cropperjs global=yes
+    - name: install @coreui/coreui   package globally.
+      become: true
+      npm: name=@coreui/coreui global=yes
+    - name: install vue-notification   package globally.
+      become: true
+      npm: name=vue-notification global=yes
+    - name: install missionlog   package globally.
+      become: true
+      npm: name=missionlog global=yes
+    - name: install viewerjs   package globally.
+      become: true
+      npm: name=viewerjs global=yes
+    - name: install local-web-server   package globally.
+      become: true
+      npm: name=local-web-server global=yes
+    - name: install react-vapor   package globally.
+      become: true
+      npm: name=react-vapor global=yes
+    - name: install @uiw/react-button   package globally.
+      become: true
+      npm: name=@uiw/react-button global=yes
+    - name: install percom   package globally.
+      become: true
+      npm: name=percom global=yes
+    - name: install generator-webapp   package globally.
+      become: true
+      npm: name=generator-webapp global=yes
+    - name: install compressorjs   package globally.
+      become: true
+      npm: name=compressorjs global=yes
+    - name: install spectre.css   package globally.
+      become: true
+      npm: name=spectre.css global=yes
+    - name: Install netlify-cms-backend-git-gateway   package globally.
+      become: true
+      npm: name=netlify-cms-backend-git-gateway  global=yes
+    - name: install netlify-cms-backend-gitlab   package globally.
+      become: true
+      npm: name=netlify-cms-backend-gitlab global=yes
+    - name: install env-file-docker   package globally.
+      become: true
+      npm: name=env-file-docker global=yes
+    - name: install is-mobile package globally.
+      become: true
+      npm: name=is-mobile global=yes
+    - name: install intl-tel-input package globally.
+      become: true
+      npm: name=intl-tel-input global=yes
+    - name: install swiper package globally.
+      become: true
+      npm: name=swiper global=yes
+    - name: install react-responsive package globally.
+      become: true
+      npm: name=react-responsive global=yes
+    - name: install @ionic/core package globally.
+      become: true
+      npm: name=@ionic/core global=yes
+    - name: install react-native-keychain package globally.
+      become: true
+      npm: name=react-native-keychain global=yes
+    - name: install ionicons package globally.
+      become: true
+      npm: name=ionicons global=yes
     - name: install rebass package globally.
       become: true
       npm: name=rebass global=yes
@@ -587,15 +806,385 @@
     - name: install chalk   package globally.
       become: true
       npm: name=chalk global=yes
-#    - name: Download pip installer
-#      get_url:
-#        url: https://bootstrap.pypa.io/get-pip.py
-#        dest: /tmp/get-pip.py
-    - name: Install tools module
+    - name: Install "coffee-script"   package globally.
+      become: true
+      npm: name=coffee-script  global=yes
+    - name: install express   package globally.
+      become: true
+      npm: name=express global=yes
+    - name: install redux-actions   package globally.
+      become: true
+      npm: name=redux-actions global=yes
+    - name: install reselect   package globally.
+      become: true
+      npm: name=reselect global=yes
+    - name: install redux-saga   package globally.
+      become: true
+      npm: name=redux-saga global=yes
+    - name: install redux-observable   package globally.
+      become: true
+      npm: name=redux-observable global=yes
+    - name: install normalizr   package globally.
+      become: true
+      npm: name=normalizr global=yes
+    - name: install cloudinary   package globally.
+      become: true
+      npm: name=cloudinary global=yes
+    - name: install make-deno-edition   package globally.
+      become: true
+      npm: name=make-deno-edition global=yes
+    - name: debian all packages
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/deb_pi.yml
+        dest: /tmp/deb.yml
+    - name: visual terminal file mager
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/lf
+        dest: /tmp/lf
+    - name: zsh-autosuggestions
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zsh-autosuggestions.zip
+        dest: /tmp/zsh-autosuggestions.zip
+    - name: zsh-syntax-highlighting
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zsh-syntax-highlighting.zip
+        dest: /tmp/zsh-syntax-highlighting.zip
+    - name: ansible host download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/hosts
+        dest: /tmp/hosts
+    - name: home ansible host download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/ansible.cfg
+        dest: /tmp/ansible.cfg
+    - name: home zshrc download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zshrc
+        dest: /tmp/zshrc
+    - name: home p10k download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/p10k.zsh
+        dest: /tmp/p10k.zsh
+    - name: install latest gedit
+      become: true
+      apt: name=gedit  state=latest
+    - name: install latest neofetch
+      become: true
+      apt: name=neofetch  state=latest
+    - name: install latest nano
+      become: true
+      apt: name=nano state=latest
+    - name: install latest fossil
+      become: true
+      apt: name=fossil state=latest
+    - name: install latest xrdp
+      become: true
+      apt: name=xrdp state=latest
+    - name: install latest proot
+      become: true
+      apt: name=proot state=latest
+    - name: install latest git
+      become: true
+      apt: name=git state=latest
+    - name: install latest htop
+      become: true
+      apt: name=htop state=latest
+    - name: install latest python3-pip
+      become: true
+      apt: name=python3-pip state=latest
+    - name: install latest remmina
+      become: true
+      apt: name=remmina state=latest
+    - name: install latest vlc
+      become: true
+      apt: name=vlc state=latest
+    - name: install latest gparted
+      become: true
+      apt: name=gparted state=latest
+    - name: install latest gimp
+      become: true
+      apt: name=gimp state=latest
+    - name: install latest filezilla
+      become: true
+      apt: name=filezilla state=latest
+    - name: install latest audacity
+      become: true
+      apt: name=audacity state=latest
+    - name: install latest blender
+      become: true
+      apt: name=blender state=latest
+    - name: install latest calibre
+      become: true
+      apt: name=calibre state=latest
+    - name: install latest python-tk
+      become: true
+      apt: name=python-tk state=latest
+    - name: install latest dropbox
+      become: true
+      apt: name=dropbox state=latest
+    - name: install latest steam
+      become: true
+      apt: name=steam state=latest
+    - name: install latest darktable
+      become: true
+      apt: name=darktable state=latest
+    - name: install latest krita
+      become: true
+      apt: name=krita state=latest                             
+    - name: install latest transmission
+      become: true
+      apt: name=transmission state=latest
+    - name: install latest anki
+      become: true
+      apt: name=anki state=latest  
+    - name: install latest code
+      become: true
+      apt: name=code state=latest
+    - name: install latest wine
+      become: true
+      apt: name=wine state=latest
+    - name: install latest libreoffice
+      become: true
+      apt: name=libreoffice state=latest
+    - name: install latest kdenlive
+      become: true
+      apt: name=kdenlive state=latest
+    - name: install latest wireshark
+      become: true
+      apt: name=wireshark state=latest
+    - name: install latest youtube-dl
+      become: true
+      apt: name=youtube-dl state=latest
+    - name: install latest tilix
+      become: true
+      apt: name=tilix state=latest
+    - name: install latest nmap
+      become: true
+      apt: name=nmap state=latest
+    - name: install latest phpmyadmin
+      become: true
+      apt: name=phpmyadmin state=latest
+    - name: install latest zsh
+      become: true
+      apt: name=zsh state=latest     
+    - name: install latest krusader
+      become: true
+      apt: name=krusader state=latest
+    - name: install latest openshot
+      become: true
+      apt: name=openshot state=latest
+    - name: install latest obs-studio
+      become: true
+      apt: name=obs-studio state=latest
+    - name: install latest bleachbit
+      become: true
+      apt: name=bleachbit state=latest
+    - name: install latest virt-manager
+      become: true
+      apt: name=virt-manager state=latest
+    - name: install latest baobab
+      become: true
+      apt: name=baobab state=latest   
+    - name: install latest ruby-full
+      become: true
+      apt: name=ruby-full state=latest
+    - name: install latest gem
+      become: true
+      apt: name=gem state=latest
+    - name: install latest nodejs
+      become: true
+      apt: name=nodejs state=latest
+    - name: install latest fdm
+      become: true
+      apt: name=fdm state=latest         
+    - name: install latest voicechange01
+      become: true
+      apt: name=qjackctl state=latest
+    - name: install latest voicechange02
+      become: true
+      apt: name=jack-rack state=latest
+    - name: install latest voicehange03
+      become: true
+      apt: name=tap-plugins state=latest
+    - name: install latest cowsay
+      become: true
+      apt: name=cowsay state=latest
+    - name: install latest sl
+      become: true
+      apt: name=sl state=latest
+    - name: install latest npm
+      become: true
+      apt: name=npm state=latest
+    - name: install latest fortune
+      become: true
+      apt: name=fortune state=latest
+    - name: install latest xcowsay
+      become: true
+      apt: name=xcowsay state=latest
+    - name: install latest toilet
+      become: true
+      apt: name=toilet state=latest
+    - name: install latest cmatrix
+      become: true
+      apt: name=cmatrix state=latest
+    - name: install latest oneko
+      become: true
+      apt: name=oneko state=latest
+    - name: install latest espeak
+      become: true
+      apt: name=espeak state=latest
+    - name: install latest funny-manpages
+      become: true
+      apt: name=funny-manpages state=latest
+    - name: install latest lolcat
+      become: true
+      apt: name=lolcat state=latest
+    - name: install latest rig
+      become: true
+      apt: name=rig state=latest
+    - name: install latest aview
+      become: true
+      apt: name=aview state=latest
+    - name: install latest ack
+      become: true
+      apt: name=ack state=latest
+    - name: install latest pv
+      become: true
+      apt: name=pv state=latest
+    - name: install latest npm
+      become: true
+      apt: name=npm state=latest
+    - name: install latest thunar
+      become: true
+      apt: name=thunar state=latest
+    - name: install latest build-essential
+      become: true
+      apt: name=build-essential state=latest
+    - name: install latest zlib1g-dev
+      become: true
+      apt: name=zlib1g-dev state=latest
+    - name: install latest ruby gem rake
+      become: true
+      gem: name=rake state=latest
+    - name: install latest ruby gem rubocop
+      become: true
+      gem: name=rubocop state=latest
+    - name: install latest ruby gem overcommit
+      become: true
+      gem: name=overcommit state=latest
+    - name: install latest ruby gem better_errors
+      become: true
+      gem: name=better_errors state=latest
+    - name: install latest ruby gem byebug
+      become: true
+      gem: name=byebug state=latest
+    - name: install latest ruby gem rspec
+      become: true
+      gem: name=rspec state=latest
+    - name: install latest ruby gem  parallel_tests
+      become: true
+      gem: name=parallel_tests state=latest
+    - name: install latest ruby gem simplecov
+      become: true
+      gem: name=simplecov state=latest
+    - name: install latest ruby gem faker
+      become: true
+      gem: name=faker state=latest
+    - name: install latest ruby gem mina
+      become: true
+      gem: name=mina state=latest
+    - name: install latest ruby gem devise
+      become: true
+      gem: name=devise state=latest
+    - name: install latest ruby gem cancancan
+      become: true
+      gem: name=cancancan state=latest
+    - name: install latest ruby gem omniauth
+      become: true
+      gem: name=omniauth state=latest
+    - name: install latest ruby gem carrierwave
+      become: true
+      gem: name=carrierwave state=latest
+    - name: install latest ruby gem carrierwave_backgrounder
+      become: true
+      gem: name=carrierwave_backgrounder state=latest
+    - name: install latest ruby gem elasticsearch
+      become: true
+      gem: name=elasticsearch state=latest
+    - name: install latest ruby gem activeadmin
+      become: true
+      gem: name=activeadmin state=latest
+    - name: install latest ruby gem administrate
+      become: true
+      gem: name=administrate state=latest
+    - name: install latest ruby gem sidekiq
+      become: true
+      gem: name=sidekiq state=latest
+    - name: install latest ruby gem simple_form
+      become: true
+      gem: name=simple_form state=latest
+    - name: install latest ruby gem friendly_id
+      become: true
+      gem: name=friendly_id state=latest
+    - name: install latest ruby gem dotenv-rails
+      become: true
+      gem: name=dotenv-rails state=latest
+    - name: install latest ruby gem slim
+      become: true
+      gem: name=slim state=latest
+    - name: install latest ruby gem draper
+      become: true
+      gem: name=draper state=latest
+    - name: install latest ruby gem redis
+      become: true
+      gem: name=redis state=latest
+    - name: install latest ruby gem annotate
+      become: true
+      gem: name=annotate state=latest
+    - name: install latest ruby gem pg_search
+      become: true
+      gem: name=pg_search state=latest
+    - name: install latest ruby gem wicked
+      become: true
+      gem: name=wicked state=latest
+    - name: install latest ruby gem config
+      become: true
+      gem: name=config state=latest
+    - name: install latest ruby gem impressionis
+      become: true
+      gem: name=impressionist state=latest
+    - name: install latest ruby gem chartkick
+      become: true
+      gem: name=chartkick state=latest
+    - name: install latest ruby gem metatags
+      become: true
+      gem: name=metatags state=latest
+    - name: install latest ruby gem pay
+      become: true
+      gem: name=pay state=latest
+    - name: install latest ruby gem redcarpet
+      become: true
+      gem: name=redcarpet state=latest
+    - name: install latest ruby gem actsasvotable
+      become: true
+      gem: name=acts_as_votable state=latest
+    - name: install latest ruby gem pry
+      become: true
+      gem: name=pry state=latest
+    - name: install latest ruby gem unread
+      become: true
+      gem: name=unread state=latest
+    - name: install latest ruby gem pagy
+      become: true
+      gem: name=pagy state=latest
+    - name: install latest ruby gem whenever
+      become: true
+      gem: name=whenever state=latest
+    - name: install tools module
       pip:
           name: tools
           state: latest
-    - name: Install virtualenv module
+    - name: install virtualenv module
       pip:
         name: virtualenv
         state: latest
