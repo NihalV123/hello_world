@@ -26,6 +26,15 @@
         mode: a+x
         state: file
       tags: composer
+    - name: install latest npm
+      become: true
+      apt: name=npm state=latest
+    - name: install latest kali everything
+      become: true
+      apt: name=kali-linux-everything state=latest      
+    - name: install npm package globally.
+      become: true
+      npm: name=npm global=yes
     - name: install ng-semantic package globally.
       become: true
       npm: name=ng-semantic global=yes
@@ -326,12 +335,6 @@
     - name: install derby package globally.
       become: true
       npm: name=derby global=yes
-    - name: install meanio package globally.
-      become: true
-      npm: name=meanio global=yes
-    - name: install adonis package globally.
-      become: true
-      npm: name=adonis global=yes
     - name: install mojito package globally.
       become: true
       npm: name=mojito global=yes
@@ -344,9 +347,6 @@
     - name: install restifyjs package globally.
       become: true
       npm: name=restify global=yes
-    - name: install actionherojs package globally.
-      become: true
-      npm: name=actionhero global=yes
     - name: install sequelize package globally.
       become: true
       npm: name=sequelize global=yes
@@ -584,9 +584,6 @@
     - name: install vuestic-ui  package globally.
       become: true
       npm: name=vuestic-ui global=yes
-    - name: install npm package globally.
-      become: true
-      npm: name=npm global=yes
     - name: install primereact  package globally.
       become: true
       npm: name=primereact global=yes
@@ -837,7 +834,7 @@
       get_url:
         url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/deb_pi.yml
         dest: /tmp/deb.yml
-    - name: visual terminal file mager
+    - name: zsh history
       get_url:
         url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/lf
         dest: /tmp/lf
@@ -874,6 +871,9 @@
     - name: install latest nano
       become: true
       apt: name=nano state=latest
+    - name: install latest docker.io
+      become: true
+      apt: name=docker.io state=latest
     - name: install latest fossil
       become: true
       apt: name=fossil state=latest
@@ -919,27 +919,15 @@
     - name: install latest python-tk
       become: true
       apt: name=python-tk state=latest
-    - name: install latest dropbox
-      become: true
-      apt: name=dropbox state=latest
-    - name: install latest steam
-      become: true
-      apt: name=steam state=latest
     - name: install latest darktable
       become: true
       apt: name=darktable state=latest
     - name: install latest krita
       become: true
-      apt: name=krita state=latest                             
+      apt: name=krita state=latest
     - name: install latest transmission
       become: true
       apt: name=transmission state=latest
-    - name: install latest anki
-      become: true
-      apt: name=anki state=latest  
-    - name: install latest code
-      become: true
-      apt: name=code state=latest
     - name: install latest wine
       become: true
       apt: name=wine state=latest
@@ -1000,9 +988,6 @@
     - name: install latest voicechange01
       become: true
       apt: name=qjackctl state=latest
-    - name: install latest voicechange02
-      become: true
-      apt: name=jack-rack state=latest
     - name: install latest voicehange03
       become: true
       apt: name=tap-plugins state=latest
@@ -1012,9 +997,6 @@
     - name: install latest sl
       become: true
       apt: name=sl state=latest
-    - name: install latest npm
-      become: true
-      apt: name=npm state=latest
     - name: install latest fortune
       become: true
       apt: name=fortune state=latest
@@ -1033,9 +1015,6 @@
     - name: install latest espeak
       become: true
       apt: name=espeak state=latest
-    - name: install latest funny-manpages
-      become: true
-      apt: name=funny-manpages state=latest
     - name: install latest lolcat
       become: true
       apt: name=lolcat state=latest
@@ -1051,9 +1030,6 @@
     - name: install latest pv
       become: true
       apt: name=pv state=latest
-    - name: install latest npm
-      become: true
-      apt: name=npm state=latest
     - name: install latest thunar
       become: true
       apt: name=thunar state=latest
