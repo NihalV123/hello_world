@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
-export ZSH="/home/nnnn/.oh-my-zsh"
+export ZSH="~/.oh-my-zsh"
 
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -451,4 +451,4 @@ rig| toilet -f term -F border --gay
 chuck_cow | lolcat
 fortune | cowsay | lolcat
 espeak "Ready"
-source /home/nnnn/Downloads/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
