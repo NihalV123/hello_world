@@ -851,7 +851,7 @@
     - name: install taffy package globally.
       become: true
       npm: name=taffy global=yes
-    - name: install duplicate-package-checker-webpack-plugin 
+    - name: install duplicate-package-checker-webpack-plugin
       become: true
       npm: name=duplicate-package-checker-webpack-plugin global=yes
     - name: install ts-loader package globally.
@@ -863,7 +863,7 @@
     - name: install closure-webpack-plugin package globally.
       become: true
       npm: name=closure-webpack-plugin global=yes
-    - name: install  webpack-bundle-analyzer package globally.
+    - name: install  webpack-bundle-analyzer package global
       become: true
       npm: name=webpack-bundle-analyzer global=yes
     - name: install open-browser-webpack-plugin package globally.
