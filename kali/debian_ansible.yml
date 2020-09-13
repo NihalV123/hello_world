@@ -851,7 +851,7 @@
     - name: install taffy package globally.
       become: true
       npm: name=taffy global=yes
-    - name: install duplicate-package-checker-webpack-plugin package globally.
+    - name: install duplicate-package-checker-webpack-plugin 
       become: true
       npm: name=duplicate-package-checker-webpack-plugin global=yes
     - name: install ts-loader package globally.
