@@ -1966,6 +1966,16 @@
       pip:
           name: pyquery
           state: latest
+    - name: Install PyQt4 module
+      become: true
+      pip:
+          name: PyQt4
+          state: latest
+    - name: Install prws module
+      become: true
+      pip:
+          name: praw
+          state: latest
     - name: Install pyscreenshot module
       become: true
       pip:
