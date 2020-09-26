@@ -1,0 +1,829 @@
+---
+- hosts: wsl
+  become: yes
+  tasks:
+    - name: download composer
+      get_url:
+        url: https://getcomposer.org/installer
+        dest: /tmp/installer
+      tags: composer
+    - name: install composer
+      shell: cat /tmp/installer | php -- --install-dir=/usr/local/bin
+      args:
+        creates: /usr/local/bin/composer
+      tags: composer
+    - name: rename composer.phar to composer
+      shell: mv /usr/local/bin/composer.phar /usr/local/bin/composer
+      args:
+        creates: /usr/local/bin/composer
+      tags: composer
+    - name: make composer executable
+      file:
+        path: /usr/local/bin/composer
+        mode: a+x
+        state: file
+      tags: composer
+    - name: install latest npm
+      become: true
+      apt: name=npm state=latest
+    - name: install latest kali everything
+      become: true
+      apt: name=kali-linux-everything state=latest
+    - name: install npm package globally.
+      become: true
+      npm: name=npm global=yes
+    - name: install ng-semantic package globally.
+      become: true
+      npm: name=ng-semantic global=yes
+    - name: install clarity package globally.
+      become: true
+      npm: name=clarity global=yes
+    - name: install NG-Lightning package globally.
+      become: true
+      npm: name=ng-lightning global=yes
+    - name: install PrimeNG package globally.
+      become: true
+      npm: name=primeng global=yes
+    - name: install ignite-ui package globally.
+      become: true
+      npm: name=ignite-ui global=yes
+    - name: install ng-zorro-antd package globally.
+      become: true
+      npm: name=ng-zorro-antd global=yes
+    - name: install recompose package globally.
+      become: true
+      npm: name=recompose global=yes
+    - name: install redux-thunk package globally.
+      become: true
+      npm: name=redux-thunk global=yes
+    - name: install shave package globally.
+      become: true
+      npm: name=shave global=yes
+    - name: install stencil package globally.
+      become: true
+      npm: name=stencil global=yes
+    - name: install  lit-element package globally.
+      become: true
+      npm: name=lit-element global=yes
+    - name: install  lit-html package globally.
+      become: true
+      npm: name=lit-html global=yes
+    - name: install voca package globally.
+      become: true
+      npm: name=voca global=yes
+    - name: install aurelia-cli package globally.
+      become: true
+      npm: name=aurelia-cli global=yes
+    - name: install cordova package globally.
+      become: true
+      npm: name=cordova global=yes
+    - name: install animejs package globally.
+      become: true
+      npm: name=animejs global=yes
+    - name: install aos package globally.
+      become: true
+      npm: name=aos global=yes
+    - name: install chartjs package globally.
+      become: true
+      npm: name=chartjs global=yes
+    - name: install choreographer-js package globally.
+      become: true
+      npm: name=choreographer-js global=yes
+    - name: install cleave.js package globally.
+      become: true
+      npm: name=cleave.js global=yes
+    - name: install d3 package globally.
+      become: true
+      npm: name=d3 global=yes
+    - name: install ember-cli package globally.
+      become: true
+      npm: name=ember-cli global=yes
+    - name: install @glimmer/component package globally.
+      become: true
+      npm: name=@glimmer/component  global=yes
+    - name: install @glimmer/tracking package globally.
+      become: true
+      npm: name=@glimmer/tracking global=yes
+    - name: install granim package globally.
+      become: true
+      npm: name=granim global=yes
+    - name: install  multiple.js package globally.
+      become: true
+      npm: name=multiple.js global=yes
+    - name: install omniscient package globally.
+      become: true
+      npm: name=omniscient global=yes
+    - name: install parsleyjs package globally.
+      become: true
+      npm: name=parsleyjs global=yes
+    - name: install  @popperjs/core package globally.
+      become: true
+      npm: name=@popperjs/core global=yes
+    - name: install premonish package globally.
+      become: true
+      npm: name=premonish global=yes
+    - name: install  slick-carousel package globally.
+      become: true
+      npm: name=slick-carousel global=yes
+    - name: install taffy package globally.
+      become: true
+      npm: name=taffy global=yes
+    - name: install duplicate-package-checker-webpack-plugin
+      become: true
+      npm: name=duplicate-package-checker-webpack-plugin global=yes
+    - name: install ts-loader package globally.
+      become: true
+      npm: name=ts-loader global=yes
+    - name: install webpack-merge package globally.
+      become: true
+      npm: name=webpack-merge global=yes
+    - name: install closure-webpack-plugin package globally.
+      become: true
+      npm: name=closure-webpack-plugin global=yes
+    - name: install  webpack-bundle-analyzer package global
+      become: true
+      npm: name=webpack-bundle-analyzer global=yes
+    - name: install open-browser-webpack-plugin package globally.
+      become: true
+      npm: name=open-browser-webpack-plugin global=yes
+    - name: install webpack-dashboard package globally.
+      become: true
+      npm: name=webpack-dashboard global=yes
+    - name: install fork-ts-checker-webpack-plugin package globally.
+      become: true
+      npm: name=fork-ts-checker-webpack-plugin global=yes
+    - name: install parallel-webpack package globally.
+      become: true
+      npm: name=parallel-webpack global=yes
+    - name: install cache-loader package globally.
+      become: true
+      npm: name=cache-loader global=yes
+    - name: install webpack-hot-middleware package globally.
+      become: true
+      npm: name=webpack-hot-middleware global=yes
+    - name: install cache-loader package globally.
+      become: true
+      npm: name=cache-loader global=yes
+    - name: install dllplugin package globally.
+      become: true
+      npm: name=webpack-build-dll-plugin global=yes
+    - name: install friendly-errors-webpack-plugin package globally.
+      become: true
+      npm: name=friendly-errors-webpack-plugin global=yes
+    - name: install webpack package globally.
+      become: true
+      npm: name=webpack global=yes
+    - name: install webpack-cli package globally.
+      become: true
+      npm: name=webpack-cli global=yes
+    - name: install webpack-dev-server package globally.
+      become: true
+      npm: name=webpack-dev-server global=yes
+    - name: install html-webpack-plugin package globally.
+      become: true
+      npm: name=html-webpack-plugin global=yes
+    - name: install css-loader package globally.
+      become: true
+      npm: name=css-loader global=yes
+    - name: install  style-loader package globally.
+      become: true
+      npm: name=style-loader global=yes
+    - name: install sass-loader  package globally.
+      become: true
+      npm: name=sass-loader  global=yes
+    - name: install sass package globally.
+      become: true
+      npm: name=sass global=yes
+    - name: install @babel/core package globally.
+      become: true
+      npm: name=@babel/core global=yes
+    - name: install babel-loader  package globally.
+      become: true
+      npm: name=babel-loader  global=yes
+    - name: install moment package globally.
+      become: true
+      npm: name=moment global=yes
+    - name: install webpack-bundle-analyzer package globally.
+      become: true
+      npm: name=webpack-bundle-analyzer global=yes
+    - name: install offline-plugin package globally.
+      become: true
+      npm: name=offline-plugin global=yes
+    - name: install webpack-pwa-manifest package globally.
+      become: true
+      npm: name=webpack-pwa-manifest global=yes
+    - name: install mobx package globally.
+      become: true
+      npm: name=mobx global=yes
+    - name: install async.js   package globally.
+      become: true
+      npm: name=async.js global=yes
+    - name: install browserify   package globally.
+      become: true
+      npm: name=browserify global=yes
+    - name: install mongodb   package globally.
+      become: true
+      npm: name=mongodb global=yes
+    - name: install node mysql   package globally.
+      become: true
+      npm: name=node-mysql global=yes
+    - name: install grunt   package globally.
+      become: true
+      npm: name=grunt global=yes
+    - name: install pm2   package globally.
+      become: true
+      npm: name=pm2 global=yes
+    - name: install socket  package globally.
+      become: true
+      npm: name=socket.io global=yes
+    - name: install mocha package globally.
+      become: true
+      npm: name=mocha global=yes
+    - name: install bower   package globally.
+      become: true
+      npm: name=bower global=yes
+    - name: install underscore  package globally.
+      become: true
+      npm: name=underscore global=yes
+    - name: install uglifyjs2  package globally.
+      become: true
+      npm: name=uglifyjs2 global=yes
+    - name: install cheerio  package globally.
+      become: true
+      npm: name=cheerio global=yes
+    - name: install passport  package globally.
+      become: true
+      npm: name=passport global=yes
+    - name: install hapi   package globally.
+      become: true
+      npm: name=hapi global=yes
+    - name: install react   package globally.
+      become: true
+      npm: name=react global=yes
+    - name: install pug   package globally.
+      become: true
+      npm: name=pug global=yes
+    - name: install less   package globally.
+      become: true
+      npm: name=less global=yes
+    - name: install jshint  package globally.
+      become: true
+      npm: name=jshint global=yes
+    - name: install morgan   package globally.
+      become: true
+      npm: name=morgan global=yes
+    - name: install webpack   package globally.
+      become: true
+      npm: name=webpack global=yes
+    - name: install angular   package globally.
+      become: true
+      npm: name=angular global=yes
+    - name: install marked   package globally.
+      become: true
+      npm: name=marked global=yes
+    - name: install graphicsmagick   package globally.
+      become: true
+      npm: name=graphicsmagick global=yes
+    - name: install axios   package globally.
+      become: true
+      npm: name=axios global=yes
+    - name: install axios   package globally.
+      become: true
+      npm: name=superagent global=yes
+    - name: install fetch   package globally.
+      become: true
+      npm: name=fetch global=yes
+    - name: install unfetch  package globally.
+      become: true
+      npm: name=unfetch global=yes
+    - name: install isomorphic-unfetch package globally.
+      become: true
+      npm: name=isomorphic-unfetch global=yes
+    - name: install node-fetch package globally.
+      become: true
+      npm: name=node-fetch global=yes
+    - name: install request package globally.
+      become: true
+      npm: name=request global=yes
+    - name: install snyk package globally.
+      become: true
+      npm: name=snyk global=yes
+    - name: install keystone package globally.
+      become: true
+      npm: name=keystone global=yes
+    - name: install migrat package globally.
+      become: true
+      npm: name=migrat global=yes
+    - name: install nextjs package globally.
+      become: true
+      npm: name=nextjs global=yes
+    - name: install sailsjs package globally.
+      become: true
+      npm: name=sails global=yes
+    - name: install meteorjs package globally.
+      become: true
+      npm: name=meteorjs-client global=yes
+    - name: install koajs package globally.
+      become: true
+      npm: name=koajs global=yes
+    - name: install loopback package globally.
+      become: true
+      npm: name=loopback global=yes
+    - name: install derby package globally.
+      become: true
+      npm: name=derby global=yes
+    - name: install mojito package globally.
+      become: true
+      npm: name=mojito global=yes
+    - name: install feather package globally.
+      become: true
+      npm: name=featherjs global=yes
+    - name: install strapiio package globally.
+      become: true
+      npm: name=strap global=yes
+    - name: install restifyjs package globally.
+      become: true
+      npm: name=restify global=yes
+    - name: install sequelize package globally.
+      become: true
+      npm: name=sequelize global=yes
+    - name: install moleculer package globally.
+      become: true
+      npm: name=moleculer global=yes
+    - name: install joi package globally.
+      become: true
+      npm: name=joi global=yes
+    - name: install momentjs package globally.
+      become: true
+      npm: name=momentjs global=yes
+    - name: install loadash package globally.
+      become: true
+      npm: name=loadash global=yes
+    - name: install semver package globally.
+      become: true
+      npm: name=semver global=yes
+    - name: install types package globally.
+      become: true
+      npm: name=types global=yes
+    - name: install babel-runtime package globally.
+      become: true
+      npm: name=babel-runtime global=yes
+    - name: install typescript package globally.
+      become: true
+      npm: name=typescript global=yes
+    - name: install react-bootstrap package globally.
+      become: true
+      npm: name=react-bootstrap global=yes
+    - name: install  jquery package globally.
+      become: true
+      npm: name=jquery global=yes
+    - name: install mock-rest-server   package globally.
+      become: true
+      npm: name=mock-rest-server global=yes
+    - name: install generator-http-fake-backend   package globally.
+      become: true
+      npm: name=generator-http-fake-backend global=yes
+    - name: install json-reaper-backend   package globally.
+      become: true
+      npm: name=json-reaper-backend global=yes
+    - name: install generate-strings  package globally.
+      become: true
+      npm: name=generate-strings global=yes
+    - name: install fastify-twitch-ebs-tools   package globally.
+      become: true
+      npm: name=fastify-twitch-ebs-tools global=yes
+    - name: install access-right   package globally.
+      become: true
+      npm: name=access-right global=yes
+    - name: install @compodoc/compodoc   package globally.
+      become: true
+      npm: name=@compodoc/compodoc global=yes
+    - name: install grunt-jsdoc   package globally.
+      become: true
+      npm: name=grunt-jsdoc global=yes
+    - name: install swagger-ui-express   package globally.
+      become: true
+      npm: name=swagger-ui-express global=yes
+    - name: install typedoc   package globally.
+      become: true
+      npm: name=typedoc global=yes
+    - name: install gray-matter  package globally.
+      become: true
+      npm: name=gray-matter global=yes
+    - name: install react-styleguidist globally.
+      become: true
+      npm: name=react-styleguidist global=yes
+    - name: install docs-searchbar.js   package globally.
+      become: true
+      npm: name=docs-searchbar.js global=yes
+    - name: install jtest package globally.
+      become: true
+      npm: name=jtest global=yes
+    - name: install fabric   package globally.
+      become: true
+      npm: name=fabric global=yes
+    - name: install gestalt  package globally.
+      become: true
+      npm: name=gestalt global=yes
+    - name: install react-components  package globally.
+      become: true
+      npm: name=react-components global=yes
+    - name: install react-styled-grid  package globally.
+      become: true
+      npm: name=react-styled-grid global=yes
+    - name: install iview  package globally.
+      become: true
+      npm: name=iview  global=yes
+    - name: install vuetify  package globally.
+      become: true
+      npm: name=vuetify global=yes
+    - name: install @turtlemint/mint-ui package globally.
+      become: true
+      npm: name=@turtlemint/mint-ui global=yes
+    - name: install apidoc  package globally.
+      become: true
+      npm: name=apidoc global=yes
+    - name: install docsify  package globally.
+      become: true
+      npm: name=docsify global=yes
+    - name: install condense-newlines  package globally.
+      become: true
+      npm: name=condense-newlines global=yes
+    - name: install doctoc  package globally.
+      become: true
+      npm: name=doctoc global=yes
+    - name: install chai   package globally.
+      become: true
+      npm: name=chai global=yes
+    - name: install karma  package globally.
+      become: true
+      npm: name=karma global=yes
+    - name: install jest   package globally.
+      become: true
+      npm: name=jest global=yes
+    - name: install @testing-library/react   package globally.
+      become: true
+      npm: name=@testing-library/react global=yes
+    - name: install @testing-library/dom  package globally.
+      become: true
+      npm: name=@testing-library/dom global=yes
+    - name: install supertest   package globally.
+      become: true
+      npm: name=supertest global=yes
+    - name: install enzyme   package globally.
+      become: true
+      npm: name=enzyme global=yes
+    - name: install browserstack   package globally.
+      become: true
+      npm: name=browserstack global=yes
+    - name: install selenium-webdriver   package globally.
+      become: true
+      npm: name=selenium-webdriver global=yes
+    - name: install nyc   package globally.
+      become: true
+      npm: name=nyc global=yes
+    - name: install deep-eql   package globally.
+      become: true
+      npm: name=deep-eql global=yes
+    - name: install react-toolbox   package globally.
+      become: true
+      npm: name=react-toolbox global=yes
+    - name: install rsuite  package globally.
+      become: true
+      npm: name=rsuite global=yes
+    - name: install belle  package globally.
+      become: true
+      npm: name=belle global=yes
+    - name: install @react-md/utils   package globally.
+      become: true
+      npm: name=@react-md/utils global=yes
+    - name: install  gestalt package globally.
+      become: true
+      npm: name=gestalt global=yes
+    - name: install @fluentui/react package globally.
+      become: true
+      npm: name=@fluentui/react global=yes
+    - name: install onsenui package globally.
+      become: true
+      npm: name=onsenui global=yes
+    - name: install react-virtualized package globally.
+      become: true
+      npm: name=react-virtualized global=yes
+    - name: install blueprint package globally.
+      become: true
+      npm: name=blueprint global=yes
+    - name: install react-desktop package globally.
+      become: true
+      npm: name=react-desktop global=yes
+    - name: install react-spinners package globally.
+      become: true
+      npm: name=react-spinners global=yes
+    - name: install grommet package globally.
+      become: true
+      npm: name=grommet global=yes
+    - name: install styled-components package globally.
+      become: true
+      npm: name=styled-components global=yes
+    - name: install simple-statistics package globally.
+      become: true
+      npm: name=simple-statistics global=yes
+    - name: install parse package globally.
+      become: true
+      npm: name=parse global=yes
+    - name: install mathjs package globally.
+      become: true
+      npm: name=mathjs global=yes
+    - name: install is-number package globally.
+      become: true
+      npm: name=is-number global=yes
+    - name: install long package globally.
+      become: true
+      npm: name=long global=yes
+    - name: install quasar package globally.
+      become: true
+      npm: name=quasar global=yes
+    - name: install bootstrap-vue  package globally.
+      become: true
+      npm: name=bootstrap-vue global=yes
+    - name: install vue-material  package globally.
+      become: true
+      npm: name=vue-material global=yes
+    - name: install vuesax  package globally.
+      become: true
+      npm: name=vuesax global=yes
+    - name: install @geops/react-ui   package globally.
+      become: true
+      npm: name=@geops/react-ui global=yes
+    - name: install vuikit  package globally.
+      become: true
+      npm: name=vuikit global=yes
+    - name: install buefy  package globally.
+      become: true
+      npm: name=buefy global=yes
+    - name: install vux  package globally.
+      become: true
+      npm: name=vux global=yes
+    - name: install vux package globally.
+      become: true
+      npm: name=vux global=yes
+    - name: install vue-router package globally.
+      become: true
+      npm: name=vue-router global=yes
+    - name: install weex  package globally.
+      become: true
+      npm: name=weex global=yes
+    - name: install vee-validate  package globally.
+      become: true
+      npm: name=vee-validate global=yes
+    - name: install vuestic-ui  package globally.
+      become: true
+      npm: name=vuestic-ui global=yes
+    - name: install vuestic-ui  package globally.
+      become: true
+      npm: name=vuestic-ui global=yes
+    - name: install primereact  package globally.
+      become: true
+      npm: name=primereact global=yes
+    - name: install react-router  package globally.
+      become: true
+      npm: name=react-router global=yes
+    - name: install ant-design  package globally.
+      become: true
+      npm: name=ant-design global=yes
+    - name: install tailwind-react-ui  package globally.
+      become: true
+      npm: name=tailwind-react-ui global=yes
+    - name: install semantic-ui-react   package globally.
+      become: true
+      npm: name=semantic-ui-react global=yes
+    - name: install react-motion   package globally.
+      become: true
+      npm: name=react-motion global=yes
+    - name: install react-native-reanimated   package globally.
+      become: true
+      npm: name=react-native-reanimated global=yes
+    - name: install react-hook-form  package globally.
+      become: true
+      npm: name=react-hook-form global=yes
+    - name: install eslint-plugin-ecmascript-compat  package globally.
+      become: true
+      npm: name=eslint-plugin-ecmascript-compat global=yes
+    - name: install eagle.js package globally.
+      become: true
+      npm: name=eagle.js global=yes
+    - name: install vuelidate package globally.
+      become: true
+      npm: name=vuelidate global=yes
+    - name: install filepond package globally.
+      become: true
+      npm: name=filepond global=yes
+    - name: install vue-multiselect package globally.
+      become: true
+      npm: name=vue-multiselect global=yes
+    - name: install vue-autosuggest  package globally.
+      become: true
+      npm: name=vue-autosuggest global=yes
+    - name: install poi  package globally.
+      become: true
+      npm: name=poi global=yes
+    - name: install keen-ui package globally.
+      become: true
+      npm: name=keen-ui global=yes
+    - name: install cube-ui  package globally.
+      become: true
+      npm: name=cube-ui global=yes
+    - name: install react-stripe-elements  package globally.
+      become: true
+      npm: name=react-stripe-elements global=yes
+    - name: install @material-ui/core  package globally.
+      become: true
+      npm: name=@material-ui/core global=yes
+    - name: install evergreen-ui   package globally.
+      become: true
+      npm: name=evergreen-ui global=yes
+    - name: install @chakra-ui/vue  package globally.
+      become: true
+      npm: name=@chakra-ui/vue global=yes
+    - name: install redux-form  package globally.
+      become: true
+      npm: name=redux-form global=yes
+    - name: install redux-form-validators  package globally.
+      become: true
+      npm: name=redux-form-validators global=yes
+    - name: install react-dnd  package globally.
+      become: true
+      npm: name=react-dnd global=yes
+    - name: install react-intl   package globally.
+      become: true
+      npm: name=react-intl global=yes
+    - name: install date-arithmetic package globally.
+      become: true
+      npm: name=date-arithmetic global=yes
+    - name: install num2fraction package globally.
+      become: true
+      npm: name=num2fraction global=yes
+    - name: install vue-js-modal package globally.
+      become: true
+      npm: name=vue-js-modal global=yes
+    - name: install cropperjs   package globally.
+      become: true
+      npm: name=cropperjs global=yes
+    - name: install @coreui/coreui   package globally.
+      become: true
+      npm: name=@coreui/coreui global=yes
+    - name: install vue-notification   package globally.
+      become: true
+      npm: name=vue-notification global=yes
+    - name: install missionlog   package globally.
+      become: true
+      npm: name=missionlog global=yes
+    - name: install viewerjs   package globally.
+      become: true
+      npm: name=viewerjs global=yes
+    - name: install local-web-server   package globally.
+      become: true
+      npm: name=local-web-server global=yes
+    - name: install react-vapor   package globally.
+      become: true
+      npm: name=react-vapor global=yes
+    - name: install @uiw/react-button   package globally.
+      become: true
+      npm: name=@uiw/react-button global=yes
+    - name: install percom   package globally.
+      become: true
+      npm: name=percom global=yes
+    - name: install generator-webapp   package globally.
+      become: true
+      npm: name=generator-webapp global=yes
+    - name: install compressorjs   package globally.
+      become: true
+      npm: name=compressorjs global=yes
+    - name: install spectre.css   package globally.
+      become: true
+      npm: name=spectre.css global=yes
+    - name: Install netlify-cms-backend-git-gateway   package globally.
+      become: true
+      npm: name=netlify-cms-backend-git-gateway  global=yes
+    - name: install netlify-cms-backend-gitlab   package globally.
+      become: true
+      npm: name=netlify-cms-backend-gitlab global=yes
+    - name: install env-file-docker   package globally.
+      become: true
+      npm: name=env-file-docker global=yes
+    - name: install is-mobile package globally.
+      become: true
+      npm: name=is-mobile global=yes
+    - name: install intl-tel-input package globally.
+      become: true
+      npm: name=intl-tel-input global=yes
+    - name: install swiper package globally.
+      become: true
+      npm: name=swiper global=yes
+    - name: install react-responsive package globally.
+      become: true
+      npm: name=react-responsive global=yes
+    - name: install @ionic/core package globally.
+      become: true
+      npm: name=@ionic/core global=yes
+    - name: install react-native-keychain package globally.
+      become: true
+      npm: name=react-native-keychain global=yes
+    - name: install ionicons package globally.
+      become: true
+      npm: name=ionicons global=yes
+    - name: install rebass package globally.
+      become: true
+      npm: name=rebass global=yes
+    - name: install minimist package globally.
+      become: true
+      npm: name=minimist global=yes
+    - name: install dotenv-jquery package globally.
+      become: true
+      npm: name=dotenv global=yes
+    - name: install colors package globally.
+      become: true
+      npm: name=colors global=yes
+    - name: install body-parser package globally.
+      become: true
+      npm: name=body-parser global=yes
+    - name: install glob package globally.
+      become: true
+      npm: name=glob global=yes
+    - name: install rxjs package globally.
+      become: true
+      npm: name=rxjs global=yes
+    - name: install mkdirp package globally.
+      become: true
+      npm: name=mkdirp global=yes
+    - name: install yargs package globally.
+      become: true
+      npm: name=yargs global=yes
+    - name: install inquirer package globally.
+      become: true
+      npm: name=inquirer global=yes
+    - name: install corejs package globally.
+      become: true
+      npm: name=corejs global=yes
+    - name: install classnames   package globally.
+      become: true
+      npm: name=classnames global=yes
+    - name: install vue   package globally.
+      become: true
+      npm: name=vue global=yes
+    - name: install uuid   package globally.
+      become: true
+      npm: name=uuid global=yes
+    - name: install bluebird   package globally.
+      become: true
+      npm: name=bluebird global=yes
+    - name: install async   package globally.
+      become: true
+      npm: name=async global=yes
+    - name: install fs-extra   package globally.
+      become: true
+      npm: name=fs-extra global=yes
+    - name: install debug   package globally.
+      become: true
+      npm: name=debug global=yes
+    - name: install tslib   package globally.
+      become: true
+      npm: name=tslib global=yes
+    - name: install prop-types   package globally.
+      become: true
+      npm: name=prop-types global=yes
+    - name: install react-dom   package globally.
+      become: true
+      npm: name=react-dom global=yes
+    - name: install moment   package globally.
+      become: true
+      npm: name=moment global=yes
+    - name: install chalk   package globally.
+      become: true
+      npm: name=chalk global=yes
+    - name: Install "coffee-script"   package globally.
+      become: true
+      npm: name=coffee-script  global=yes
+    - name: install express   package globally.
+      become: true
+      npm: name=express global=yes
+    - name: install redux-actions   package globally.
+      become: true
+      npm: name=redux-actions global=yes
+    - name: install reselect   package globally.
+      become: true
+      npm: name=reselect global=yes
+    - name: install redux-saga   package globally.
+      become: true
+      npm: name=redux-saga global=yes
+    - name: install redux-observable   package globally.
+      become: true
+      npm: name=redux-observable global=yes
+    - name: install normalizr   package globally.
+      become: true
+      npm: name=normalizr global=yes
+    - name: install cloudinary   package globally.
+      become: true
+      npm: name=cloudinary global=yes
+    - name: install make-deno-edition   package globally.
+      become: true
+      npm: name=make-deno-edition global=yes
