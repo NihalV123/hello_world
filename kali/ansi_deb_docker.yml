@@ -1,0 +1,1513 @@
+---
+- hosts: wsl
+  become: yes
+  tasks:
+    - name: install latest maven
+      become: true
+      apt: name=maven state=latest
+    - name: pull docker syncthing
+      become: true
+      docker_image:
+          name: syncthing/syncthing
+          source: pull
+    - name: pull docker   pymedusa
+      become: true
+      docker_image:
+          name:   pymedusa/medusa
+          source: pull
+    - name: pull docker airsonic
+      become: true
+      docker_image:
+          name: linuxserver/airsonic
+          source: pull
+    - name: pull docker bazarr
+      become: true
+      docker_image:
+          name: linuxserver/bazarr
+          source: pull
+    - name: pull docker beets
+      become: true
+      docker_image:
+          name: linuxserver/beets
+          source: pull
+    - name: pull docker booksonic
+      become: true
+      docker_image:
+          name: linuxserver/booksonic
+          source: pull
+    - name: pull docker bookstack
+      become: true
+      docker_image:
+          name: linuxserver/bookstack
+          source: pull
+    - name: pull docker calibre
+      become: true
+      docker_image:
+          name: linuxserver/calibre
+          source: pull
+    - name: pull docker calibre
+      become: true
+      docker_image:
+          name: linuxserver/calibre-web
+          source: pull
+    - name: pull docker cardigann
+      become: true
+      docker_image:
+          name: linuxserver/cardigann
+          source: pull
+    - name: pull docker chevereto
+      become: true
+      docker_image:
+          name: linuxserver/chevereto
+          source: pull
+    - name: pull docker clarkson
+      become: true
+      docker_image:
+          name: linuxserver/clarkson
+          source: pull
+    - name: pull docker code
+      become: true
+      docker_image:
+          name: linuxserver/code-server
+          source: pull
+    - name: pull docker codiad
+      become: true
+      docker_image:
+          name: linuxserver/codiad
+          source: pull
+    - name: pull docker codimd
+      become: true
+      docker_image:
+          name: linuxserver/codimd
+          source: pull
+    - name: pull docker cops
+      become: true
+      docker_image:
+          name: linuxserver/cops
+          source: pull
+    - name: pull docker couchpotato
+      become: true
+      docker_image:
+          name: linuxserver/couchpotato
+          source: pull
+    - name: pull docker daapd
+      become: true
+      docker_image:
+          name: linuxserver/daapd
+          source: pull
+    - name: pull docker davos
+      become: true
+      docker_image:
+          name: linuxserver/davos
+          source: pull
+    - name: pull docker ddclient
+      become: true
+      docker_image:
+          name: linuxserver/ddclient
+          source: pull
+    - name: pull docker deluge
+      become: true
+      docker_image:
+          name: linuxserver/deluge
+          source: pull
+    - name: pull docker dillinger
+      become: true
+      docker_image:
+          name: linuxserver/dillinger
+          source: pull
+    - name: pull docker diskover
+      become: true
+      docker_image:
+          name: linuxserver/diskover
+          source: pull
+    - name: pull docker compose
+      become: true
+      docker_image:
+          name: linuxserver/docker-compose
+          source: pull
+    - name: pull docker dokuwiki
+      become: true
+      docker_image:
+          name: linuxserver/dokuwiki
+          source: pull
+    - name: pull docker domoticz
+      become: true
+      docker_image:
+          name: linuxserver/domoticz
+          source: pull
+    - name: pull docker doublecommander
+      become: true
+      docker_image:
+          name: linuxserver/doublecommander
+          source: pull
+    - name: pull docker duckdns
+      become: true
+      docker_image:
+          name: linuxserver/duckdns
+          source: pull
+    - name: pull docker duplicati
+      become: true
+      docker_image:
+          name: linuxserver/duplicati
+          source: pull
+    - name: pull docker emby
+      become: true
+      docker_image:
+          name: linuxserver/emby
+          source: pull
+    - name: pull docker embystat
+      become: true
+      docker_image:
+          name: linuxserver/embystat
+          source: pull
+    - name: pull docker ffmpeg
+      become: true
+      docker_image:
+          name: linuxserver/ffmpeg
+          source: pull
+    - name: pull docker fleet
+      become: true
+      docker_image:
+          name: linuxserver/fleet
+          source: pull
+    - name: pull docker freshrss
+      become: true
+      docker_image:
+          name: linuxserver/freshrss
+          source: pull
+    - name: pull docker gazee
+      become: true
+      docker_image:
+          name: linuxserver/gazee
+          source: pull
+    - name: pull docker grocy
+      become: true
+      docker_image:
+          name: linuxserver/grocy
+          source: pull
+    - name: pull docker guacd
+      become: true
+      docker_image:
+          name: linuxserver/guacd
+          source: pull
+    - name: pull docker habridge
+      become: true
+      docker_image:
+          name: linuxserver/habridge
+          source: pull
+    - name: pull docker headphones
+      become: true
+      docker_image:
+          name: linuxserver/headphones
+          source: pull
+    - name: pull docker healthchecks
+      become: true
+      docker_image:
+          name: linuxserver/healthchecks
+          source: pull
+    - name: pull docker heimdall
+      become: true
+      docker_image:
+          name: linuxserver/heimdall
+          source: pull
+    - name: pull docker htpcmanager
+      become: true
+      docker_image:
+          name: linuxserver/htpcmanager
+          source: pull
+    - name: pull docker hydra
+      become: true
+      docker_image:
+          name: linuxserver/hydra
+          source: pull
+    - name: pull docker jackett
+      become: true
+      docker_image:
+          name: linuxserver/jackett
+          source: pull
+    - name: pull docker jenkins
+      become: true
+      docker_image:
+          name: linuxserver/jenkins-builder
+          source: pull
+    - name: pull docker kanzi
+      become: true
+      docker_image:
+          name: linuxserver/kanzi
+          source: pull
+    - name: pull docker lazylibrarian
+      become: true
+      docker_image:
+          name: linuxserver/lazylibrarian
+          source: pull
+    - name: pull docker ldap
+      become: true
+      docker_image:
+          name: linuxserver/ldap-auth
+          source: pull
+    - name: pull docker letsencrypt
+      become: true
+      docker_image:
+          name: linuxserver/letsencrypt
+          source: pull
+    - name: pull docker librespeed
+      become: true
+      docker_image:
+          name: linuxserver/librespeed
+          source: pull
+    - name: pull docker lidarr
+      become: true
+      docker_image:
+          name: linuxserver/lidarr
+          source: pull
+    - name: pull docker limnoria
+      become: true
+      docker_image:
+          name: linuxserver/limnoria
+          source: pull
+    - name: pull docker lychee
+      become: true
+      docker_image:
+          name: linuxserver/lychee
+          source: pull
+    - name: pull docker mariadb
+      become: true
+      docker_image:
+          name: linuxserver/mariadb
+          source: pull
+    - name: pull docker minetest
+      become: true
+      docker_image:
+          name: linuxserver/minetest
+          source: pull
+    - name: pull docker minisatip
+      become: true
+      docker_image:
+          name: linuxserver/minisatip
+          source: pull
+    - name: pull docker mstream
+      become: true
+      docker_image:
+          name: linuxserver/mstream
+          source: pull
+    - name: pull docker musicbrainz
+      become: true
+      docker_image:
+          name: linuxserver/musicbrainz
+          source: pull
+    - name: pull docker mylar
+      become: true
+      docker_image:
+          name: linuxserver/mylar
+          source: pull
+    - name: pull docker mysql
+      become: true
+      docker_image:
+          name: linuxserver/mysql-workbench
+          source: pull
+    - name: pull docker nano
+      become: true
+      docker_image:
+          name: linuxserver/nano
+          source: pull
+    - name: pull docker nano
+      become: true
+      docker_image:
+          name: linuxserver/nano-wallet
+          source: pull
+    - name: pull docker netbootxyz
+      become: true
+      docker_image:
+          name: linuxserver/netbootxyz
+          source: pull
+    - name: pull docker nginx
+      become: true
+      docker_image:
+          name: linuxserver/nginx
+          source: pull
+    - name: pull docker ngircd
+      become: true
+      docker_image:
+          name: linuxserver/ngircd
+          source: pull
+    - name: pull docker nzbget
+      become: true
+      docker_image:
+          name: linuxserver/nzbget
+          source: pull
+    - name: pull docker ombi
+      become: true
+      docker_image:
+          name: linuxserver/ombi
+          source: pull
+    - name: pull docker openssh
+      become: true
+      docker_image:
+          name: linuxserver/openssh-server
+          source: pull
+    - name: pull docker openvpn
+      become: true
+      docker_image:
+          name: linuxserver/openvpn-as
+          source: pull
+    - name: pull docker organizr
+      become: true
+      docker_image:
+          name: linuxserver/organizr
+          source: pull
+    - name: pull docker oscam
+      become: true
+      docker_image:
+          name: linuxserver/oscam
+          source: pull
+    - name: pull docker papermerge
+      become: true
+      docker_image:
+          name: linuxserver/papermerge
+          source: pull
+    - name: pull docker photoshow
+      become: true
+      docker_image:
+          name: linuxserver/photoshow
+          source: pull
+    - name: pull docker piwigo
+      become: true
+      docker_image:
+          name: linuxserver/piwigo
+          source: pull
+    - name: pull docker plex
+      become: true
+      docker_image:
+          name: linuxserver/plex
+          source: pull
+    - name: pull docker projectsend
+      become: true
+      docker_image:
+          name: linuxserver/projectsend
+          source: pull
+    - name: pull docker pwndrop
+      become: true
+      docker_image:
+          name: linuxserver/pwndrop
+          source: pull
+    - name: pull docker pydio
+      become: true
+      docker_image:
+          name: linuxserver/pydio-cells
+          source: pull
+    - name: pull docker pyload
+      become: true
+      docker_image:
+          name: linuxserver/pyload
+          source: pull
+    - name: pull docker pylon
+      become: true
+      docker_image:
+          name: linuxserver/pylon
+          source: pull
+    - name: pull docker qbittorrent
+      become: true
+      docker_image:
+          name: linuxserver/qbittorrent
+          source: pull
+    - name: pull docker quassel
+      become: true
+      docker_image:
+          name: linuxserver/quassel-core
+          source: pull
+    - name: pull docker quassel
+      become: true
+      docker_image:
+          name: linuxserver/quassel-web
+          source: pull
+    - name: pull docker radarr
+      become: true
+      docker_image:
+          name: linuxserver/radarr
+          source: pull
+    - name: pull docker raneto
+      become: true
+      docker_image:
+          name: linuxserver/raneto
+          source: pull
+    - name: pull docker rdesktop
+      become: true
+      docker_image:
+          name: linuxserver/rdesktop
+          source: pull
+    - name: pull docker remmina
+      become: true
+      docker_image:
+          name: linuxserver/remmina
+          source: pull
+    - name: pull docker resilio
+      become: true
+      docker_image:
+          name: linuxserver/resilio-sync
+          source: pull
+    - name: pull docker rutorrent
+      become: true
+      docker_image:
+          name: linuxserver/rutorrent
+          source: pull
+    - name: pull docker sabnzbd
+      become: true
+      docker_image:
+          name: linuxserver/sabnzbd
+          source: pull
+    - name: pull docker sickgear
+      become: true
+      docker_image:
+          name: linuxserver/sickgear
+          source: pull
+    - name: pull docker smokeping
+      become: true
+      docker_image:
+          name: linuxserver/smokeping
+          source: pull
+    - name: pull docker snipe
+      become: true
+      docker_image:
+          name: linuxserver/snipe-it
+          source: pull
+    - name: pull docker sonarr
+      become: true
+      docker_image:
+          name: linuxserver/sonarr
+          source: pull
+    - name: pull docker sqlitebrowser
+      become: true
+      docker_image:
+          name: linuxserver/sqlitebrowser
+          source: pull
+    - name: pull docker swag
+      become: true
+      docker_image:
+          name: linuxserver/swag
+          source: pull
+    - name: pull docker synclounge
+      become: true
+      docker_image:
+          name: linuxserver/synclounge
+          source: pull
+    - name: pull docker syncthing
+      become: true
+      docker_image:
+          name: linuxserver/syncthing
+          source: pull
+    - name: pull docker taisun
+      become: true
+      docker_image:
+          name: linuxserver/taisun
+          source: pull
+    - name: pull docker tautulli
+      become: true
+      docker_image:
+          name: linuxserver/tautulli
+          source: pull
+    - name: pull docker thelounge
+      become: true
+      docker_image:
+          name: linuxserver/thelounge
+          source: pull
+    - name: pull docker transmission
+      become: true
+      docker_image:
+          name: linuxserver/transmission
+          source: pull
+    - name: pull docker tvheadend
+      become: true
+      docker_image:
+          name: linuxserver/tvheadend
+          source: pull
+    - name: pull docker ubooquity
+      become: true
+      docker_image:
+          name: linuxserver/ubooquity
+          source: pull
+    - name: pull docker webgrabplus
+      become: true
+      docker_image:
+          name: linuxserver/webgrabplus
+          source: pull
+    - name: pull docker wikijs
+      become: true
+      docker_image:
+          name: linuxserver/wikijs
+          source: pull
+    - name: pull docker wireguard
+      become: true
+      docker_image:
+          name: linuxserver/wireguard
+          source: pull
+    - name: pull docker wireshark
+      become: true
+      docker_image:
+          name: linuxserver/wireshark
+          source: pull
+    - name: pull docker znc
+      become: true
+      docker_image:
+          name: linuxserver/znc
+          source: pull
+    - name: pull docker huginn
+      become: true
+      docker_image:
+          name: huginn/huginn
+          source: pull
+    - name: pull docker bitwardenr
+      become: true
+      docker_image:
+          name: bitwardenrs/server
+          source: pull
+    - name: pull docker  gitlab
+      become: true
+      docker_image:
+          name: gitlab/gitlab-runner
+          source: pull
+    - name: pull docker  traefik
+      become: true
+      docker_image:
+          name: traefik
+          source: pull
+    - name: pull docker  watchtower
+      become: true
+      docker_image:
+          name: v2tec/watchtower
+          source: pull
+    - name: pull docker  centos
+      become: true
+      docker_image:
+          name: pacur/centos-7
+          source: pull
+    - name: pull docker  wordpress
+      become: true
+      docker_image:
+          name: wordpress
+          source: pull
+    - name: pull docker  ubuntu
+      become: true
+      docker_image:
+          name: ubuntu
+          source: pull
+    - name: pull docker  plex
+      become: true
+      docker_image:
+          name:  plexinc/pms-docker
+          source: pull
+    - name: pull docker  makemkv
+      become: true
+      docker_image:
+          name: jlesage/makemkv
+          source: pull
+    - name: pull docker  handbrake
+      become: true
+      docker_image:
+          name: jlesage/handbrake
+          source: pull
+    - name: pull docker  dokuwiki
+      become: true
+      docker_image:
+          name: bitnami/dokuwiki
+          source: pull
+    - name: pull docker  portainer
+      become: true
+      docker_image:
+          name: portainer/portainer
+          source: pull
+    - name: pull docker  jupyter
+      become: true
+      docker_image:
+          name: jupyter/tensorflow-notebook
+          source: pull
+    - name: pull docker  datascience
+      become: true
+      docker_image:
+          name: jupyter/datascience-notebook
+          source: pull
+    - name: pull docker  mysql
+      become: true
+      docker_image:
+          name: mysql
+          source: pull
+    - name: pull docker  mongodb
+      become: true
+      docker_image:
+          name: mongo-express
+          source: pull
+    - name: pull docker  mariadb
+      become: true
+      docker_image:
+          name: mariadb
+          source: pull
+    - name: pull docker  arangodb
+      become: true
+      docker_image:
+          name: arangodb
+          source: pull
+    - name: pull docker  rubyonrails
+      become: true
+      docker_image:
+          name: ruby
+          source: pull
+    - name: pull docker  httpd
+      become: true
+      docker_image:
+          name: httpd
+          source: pull
+    - name: pull docker  postgresql
+      become: true
+      docker_image:
+          name: postgres
+          source: pull
+    - name: pull docker  django
+      become: true
+      docker_image:
+          name: django
+          source: pull
+    - name: pull docker  redis
+      become: true
+      docker_image:
+          name: redis
+          source: pull
+    - name: pull docker  memcached
+      become: true
+      docker_image:
+          name: memcached
+          source: pull
+    - name: pull docker  fedora
+      become: true
+      docker_image:
+          name: fedora
+          source: pull
+    - name: pull docker  nginx
+      become: true
+      docker_image:
+          name: nginx
+          source: pull
+    - name: pull docker  rethinkdb
+      become: true
+      docker_image:
+          name: rethinkdb
+          source: pull
+    - name: pull docker  sonarqube
+      become: true
+      docker_image:
+          name: sonarqube
+          source: pull
+    - name: pull docker  sentry
+      become: true
+      docker_image:
+          name: sentry
+          source: pull
+    - name: pull docker  jenkins
+      become: true
+      docker_image:
+          name: jenkins
+          source: pull
+    - name: pull docker  owncloud
+      become: true
+      docker_image:
+          name: owncloud
+          source: pull
+    - name: pull docker  tomcat
+      become: true
+      docker_image:
+          name: tomcat
+          source: pull
+    - name: pull docker  joomla
+      become: true
+      docker_image:
+          name: joomla
+          source: pull
+    - name: pull docker  neo4j
+      become: true
+      docker_image:
+          name: neo4j
+          source: pull
+    - name: debian docker ansible
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/ansi_deb_docker.yml
+        dest: /tmp/ansi_deb_docker.yml
+    - name: debian docker ansible
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/ansi_deb_node.yml
+        dest: /tmp/ansi_deb_node.yml
+    - name: zsh history
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/lf
+        dest: /tmp/lf
+    - name: zsh-autosuggestions
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zsh-autosuggestions.zip
+        dest: /tmp/zsh-autosuggestions.zip
+    - name: zsh-syntax-highlighting
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zsh-syntax-highlighting.zip
+        dest: /tmp/zsh-syntax-highlighting.zip
+    - name: ansible host download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/hosts
+        dest: /tmp/hosts
+    - name: home ansible host download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/ansible.cfg
+        dest: /tmp/ansible.cfg
+    - name: home zshrc download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/zshrc
+        dest: /tmp/zshrc
+    - name: home p10k download in tmp dir
+      get_url:
+        url: https://raw.githubusercontent.com/nihalv123/hello_world/master/kali/p10k.zsh
+        dest: /tmp/p10k.zsh
+    - name: install latest gedit
+      become: true
+      apt: name=gedit  state=latest
+    - name: install latest neofetch
+      become: true
+      apt: name=neofetch  state=latest
+    - name: install latest nano
+      become: true
+      apt: name=nano state=latest
+    - name: install latest docker.io
+      become: true
+      apt: name=docker.io state=latest
+    - name: install latest fossil
+      become: true
+      apt: name=fossil state=latest
+    - name: install latest xrdp
+      become: true
+      apt: name=xrdp state=latest
+    - name: install latest proot
+      become: true
+      apt: name=proot state=latest
+    - name: install latest git
+      become: true
+      apt: name=git state=latest
+    - name: install latest htop
+      become: true
+      apt: name=htop state=latest
+    - name: install latest python3-pip
+      become: true
+      apt: name=python3-pip state=latest
+    - name: install latest remmina
+      become: true
+      apt: name=remmina state=latest
+    - name: install latest vlc
+      become: true
+      apt: name=vlc state=latest
+    - name: install latest gparted
+      become: true
+      apt: name=gparted state=latest
+    - name: install latest gimp
+      become: true
+      apt: name=gimp state=latest
+    - name: install latest filezilla
+      become: true
+      apt: name=filezilla state=latest
+    - name: install latest audacity
+      become: true
+      apt: name=audacity state=latest
+    - name: install latest blender
+      become: true
+      apt: name=blender state=latest
+    - name: install latest calibre
+      become: true
+      apt: name=calibre state=latest
+    - name: install latest python-tk
+      become: true
+      apt: name=python-tk state=latest
+    - name: install latest darktable
+      become: true
+      apt: name=darktable state=latest
+    - name: install latest krita
+      become: true
+      apt: name=krita state=latest
+    - name: install latest transmission
+      become: true
+      apt: name=transmission state=latest
+    - name: install latest wine
+      become: true
+      apt: name=wine state=latest
+    - name: install latest libreoffice
+      become: true
+      apt: name=libreoffice state=latest
+    - name: install latest kdenlive
+      become: true
+      apt: name=kdenlive state=latest
+    - name: install latest wireshark
+      become: true
+      apt: name=wireshark state=latest
+    - name: install latest youtube-dl
+      become: true
+      apt: name=youtube-dl state=latest
+    - name: install latest tilix
+      become: true
+      apt: name=tilix state=latest
+    - name: install latest nmap
+      become: true
+      apt: name=nmap state=latest
+    - name: install latest phpmyadmin
+      become: true
+      apt: name=phpmyadmin state=latest
+    - name: install latest zsh
+      become: true
+      apt: name=zsh state=latest     
+    - name: install latest krusader
+      become: true
+      apt: name=krusader state=latest
+    - name: install latest openshot
+      become: true
+      apt: name=openshot state=latest
+    - name: install latest obs-studio
+      become: true
+      apt: name=obs-studio state=latest
+    - name: install latest bleachbit
+      become: true
+      apt: name=bleachbit state=latest
+    - name: install latest virt-manager
+      become: true
+      apt: name=virt-manager state=latest
+    - name: install latest baobab
+      become: true
+      apt: name=baobab state=latest   
+    - name: install latest ruby-full
+      become: true
+      apt: name=ruby-full state=latest
+    - name: install latest gem
+      become: true
+      apt: name=gem state=latest
+    - name: install latest nodejs
+      become: true
+      apt: name=nodejs state=latest
+    - name: install latest fdm
+      become: true
+      apt: name=fdm state=latest         
+    - name: install latest voicechange01
+      become: true
+      apt: name=qjackctl state=latest
+    - name: install latest voicehange03
+      become: true
+      apt: name=tap-plugins state=latest
+    - name: install latest cowsay
+      become: true
+      apt: name=cowsay state=latest
+    - name: install latest sl
+      become: true
+      apt: name=sl state=latest
+    - name: install latest fortune
+      become: true
+      apt: name=fortune state=latest
+    - name: install latest xcowsay
+      become: true
+      apt: name=xcowsay state=latest
+    - name: install latest toilet
+      become: true
+      apt: name=toilet state=latest
+    - name: install latest cmatrix
+      become: true
+      apt: name=cmatrix state=latest
+    - name: install latest oneko
+      become: true
+      apt: name=oneko state=latest
+    - name: install latest espeak
+      become: true
+      apt: name=espeak state=latest
+    - name: install latest lolcat
+      become: true
+      apt: name=lolcat state=latest
+    - name: install latest rig
+      become: true
+      apt: name=rig state=latest
+    - name: install latest aview
+      become: true
+      apt: name=aview state=latest
+    - name: install latest ack
+      become: true
+      apt: name=ack state=latest
+    - name: install latest pv
+      become: true
+      apt: name=pv state=latest
+    - name: install latest thunar
+      become: true
+      apt: name=thunar state=latest
+    - name: install latest build-essential
+      become: true
+      apt: name=build-essential state=latest
+    - name: install latest zlib1g-dev
+      become: true
+      apt: name=zlib1g-dev state=latest
+    - name: install latest ruby gem rake
+      become: true
+      gem: name=rake state=latest
+    - name: install latest ruby gem rubocop
+      become: true
+      gem: name=rubocop state=latest
+    - name: install latest ruby gem overcommit
+      become: true
+      gem: name=overcommit state=latest
+    - name: install latest ruby gem better_errors
+      become: true
+      gem: name=better_errors state=latest
+    - name: install latest ruby gem byebug
+      become: true
+      gem: name=byebug state=latest
+    - name: install latest ruby gem rspec
+      become: true
+      gem: name=rspec state=latest
+    - name: install latest ruby gem  parallel_tests
+      become: true
+      gem: name=parallel_tests state=latest
+    - name: install latest ruby gem simplecov
+      become: true
+      gem: name=simplecov state=latest
+    - name: install latest ruby gem faker
+      become: true
+      gem: name=faker state=latest
+    - name: install latest ruby gem mina
+      become: true
+      gem: name=mina state=latest
+    - name: install latest ruby gem devise
+      become: true
+      gem: name=devise state=latest
+    - name: install latest ruby gem cancancan
+      become: true
+      gem: name=cancancan state=latest
+    - name: install latest ruby gem omniauth
+      become: true
+      gem: name=omniauth state=latest
+    - name: install latest ruby gem carrierwave
+      become: true
+      gem: name=carrierwave state=latest
+    - name: install latest ruby gem carrierwave_backgrounder
+      become: true
+      gem: name=carrierwave_backgrounder state=latest
+    - name: install latest ruby gem elasticsearch
+      become: true
+      gem: name=elasticsearch state=latest
+    - name: install latest ruby gem activeadmin
+      become: true
+      gem: name=activeadmin state=latest
+    - name: install latest ruby gem administrate
+      become: true
+      gem: name=administrate state=latest
+    - name: install latest ruby gem sidekiq
+      become: true
+      gem: name=sidekiq state=latest
+    - name: install latest ruby gem simple_form
+      become: true
+      gem: name=simple_form state=latest
+    - name: install latest ruby gem friendly_id
+      become: true
+      gem: name=friendly_id state=latest
+    - name: install latest ruby gem dotenv-rails
+      become: true
+      gem: name=dotenv-rails state=latest
+    - name: install latest ruby gem slim
+      become: true
+      gem: name=slim state=latest
+    - name: install latest ruby gem draper
+      become: true
+      gem: name=draper state=latest
+    - name: install latest ruby gem redis
+      become: true
+      gem: name=redis state=latest
+    - name: install latest ruby gem annotate
+      become: true
+      gem: name=annotate state=latest
+    - name: install latest ruby gem pg_search
+      become: true
+      gem: name=pg_search state=latest
+    - name: install latest ruby gem wicked
+      become: true
+      gem: name=wicked state=latest
+    - name: install latest ruby gem config
+      become: true
+      gem: name=config state=latest
+    - name: install latest ruby gem impressionis
+      become: true
+      gem: name=impressionist state=latest
+    - name: install latest ruby gem chartkick
+      become: true
+      gem: name=chartkick state=latest
+    - name: install latest ruby gem metatags
+      become: true
+      gem: name=metatags state=latest
+    - name: install latest ruby gem pay
+      become: true
+      gem: name=pay state=latest
+    - name: install latest ruby gem redcarpet
+      become: true
+      gem: name=redcarpet state=latest
+    - name: install latest ruby gem actsasvotable
+      become: true
+      gem: name=acts_as_votable state=latest
+    - name: install latest ruby gem pry
+      become: true
+      gem: name=pry state=latest
+    - name: install latest ruby gem unread
+      become: true
+      gem: name=unread state=latest
+    - name: install latest ruby gem pagy
+      become: true
+      gem: name=pagy state=latest
+    - name: install latest ruby gem whenever
+      become: true
+      gem: name=whenever state=latest
+    - name: install tools module
+      become: true
+      pip:
+          name: tools
+          state: latest
+    - name: install virtualenv module
+      become: true
+      pip:
+        name: virtualenv
+        state: latest
+    - name: Create app folder
+      file:
+        name: /opt/pythonapp
+        state: directory
+        recurse: yes
+    - name: Install s3transfer module
+      become: true
+      pip:
+          name: s3transfer
+          state: latest
+    - name: Install boto3 module
+      become: true
+      pip:
+          name: boto3
+          state: latest
+    - name: Install Mutagen module
+      become: true
+      pip:
+          name: Mutagen
+          state: latest
+    - name: Install Urllib3 module
+      become: true
+      pip:
+          name: Urllib3
+          state: latest
+    - name: Install botocore module
+      become: true
+      pip:
+          name: botocore
+          state: latest
+    - name: Install PyMedia module
+      become: true
+      pip:
+          name: pymedia2-pyrana
+          state: latest
+    - name: Install pyOpenGL module
+      become: true
+      pip:
+          name: pyOpenGL
+          state: latest
+    - name: Install docker module
+      become: true
+      pip:
+          name: docker
+          state: latest
+    - name: Install six module
+      become: true
+      pip:
+          name: six
+          state: latest
+    - name: Install MySQLdb module
+      become: true
+      pip:
+          name: MySQLdb-wrapper
+          state: latest
+    - name: Install googlemaps module
+      become: true
+      pip:
+          name: googlemaps
+          state: latest
+    - name: Install scrape module
+      become: true
+      pip:
+          name: scrape
+          state: latest
+    - name: Install mechanize module
+      become: true
+      pip:
+          name: mechanize
+          state: latest
+    - name: Install Selenium module
+      become: true
+      pip:
+          name: Selenium
+          state: latest
+    - name: Install pyquery module
+      become: true
+      pip:
+          name: pyquery
+          state: latest
+    - name: Install PyQt4 module
+      become: true
+      pip:
+          name: PyQt4
+          state: latest
+    - name: Install prws module
+      become: true
+      pip:
+          name: praw
+          state: latest
+    - name: Install pyscreenshot module
+      become: true
+      pip:
+          name: pyscreenshot
+          state: latest
+    - name: Install Pyglet module
+      become: true
+      pip:
+          name: Pyglet
+          state: latest
+    - name: Install Python-dateutil module
+      become: true
+      pip:
+          name: Python-dateutil
+          state: latest
+    - name: Install Docutils module
+      become: true
+      pip:
+          name: Docutils
+          state: latest
+    - name: Install Simplejson module
+      become: true
+      pip:
+          name: Simplejson
+          state: latest
+    - name: Install Colorama module
+      become: true
+      pip:
+          name: Colorama
+          state: latest
+    - name: Install Futures module
+      become: true
+      pip:
+          name: Futures
+          state: latest
+    - name: Install Pytz module
+      become: true
+      pip:
+          name: Pytz
+          state: latest
+    - name: Install Jmespath module
+      become: true
+      pip:
+          name: Jmespath
+          state: latest
+    - name: Install rsa module
+      become: true
+      pip:
+          name: rsa
+          state: latest
+    - name: Install Chardet module
+      become: true
+      pip:
+          name: Chardet
+          state: latest
+    - name: Install Pyasn1 module
+      become: true
+      pip:
+          name: Pyasn1
+          state: latest
+    - name: Install PyYAML module
+      become: true
+      pip:
+          name: PyYAML
+          state: latest
+    - name: Install Idna module
+      become: true
+      pip:
+          name: Idna
+          state: latest
+    - name: Install Certifi module
+      become: true
+      pip:
+          name: Certifi
+          state: latest
+    - name: Install awscli module
+      become: true
+      pip:
+          name: awscli
+          state: latest
+    - name: Install opencv module
+      become: true
+      pip:
+          name: opencv-python
+          state: latest
+    - name: Install pytil module
+      become: true
+      pip:
+          name: pytil
+          state: latest
+    - name: Install NetworkX module
+      become: true
+      pip:
+          name: NetworkX
+          state: latest
+    - name: Install TextBlob module
+      become: true
+      pip:
+          name: TextBlob
+          state: latest
+    - name: Install plotly module
+      become: true
+      pip:
+          name: plotly
+          state: latest
+    - name: Install pydot module
+      become: true
+      pip:
+          name: pydot
+          state: latest
+    - name: Install pmw module
+      become: true
+      pip:
+          name: pmw
+          state: latest
+    - name: Install Mahotas module
+      become: true
+      pip:
+          name: Mahotas
+          state: latest
+    - name: Install zappa module
+      become: true
+      pip:
+          name: zappa
+          state: latest
+    - name: Install ipython module
+      become: true
+      pip:
+          name: ipython
+          state: latest
+    - name: Install imbalanced-learn module
+      become: true
+      pip:
+          name: imbalanced-learn
+          state: latest
+    - name: Install scrapy module
+      become: true
+      pip:
+          name: scrapy
+          state: latest
+    - name: Install xgboost module
+      become: true
+      pip:
+          name: xgboost
+          state: latest
+    - name: Install SQLAlchemy module
+      become: true
+      pip:
+          name: SQLAlchemy
+          state: latest
+    - name: Install Delorean module
+      become: true
+      pip:
+          name: Delorean
+          state: latest
+    - name: Install BeautifulSoup module
+      become: true
+      pip:
+          name: bs4
+          state: latest
+    - name: Install tkinter module
+      become: true
+      pip:
+          name: tk
+          state: latest
+    - name: Install Bokeh module
+      become: true
+      pip:
+          name: Bokeh
+          state: latest
+    - name: Install Poetry module
+      become: true
+      pip:
+          name: Poetry
+          state: latest
+    - name: Install Gensim module
+      become: true
+      pip:
+          name: Gensim
+          state: latest
+    - name: Install cirq module
+      become: true
+      pip:
+          name: cirq
+          state: latest
+    - name: Install luminoth module
+      become: true
+      pip:
+          name: luminoth
+          state: latest
+    - name: Install pandas module
+      become: true
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pytorch module
+      become: true
+      pip:
+          name: torch
+          state: latest
+    - name: Install pytorch2 module
+      become: true
+      pip:
+          name: torchvision
+          state: latest
+    - name: Install pyqt5 module
+      become: true
+      pip:
+          name: pyqt5
+          state: latest
+    - name: Install nltk module
+      become: true
+      pip:
+          name: nltk
+          state: latest
+    - name: Install arrow module
+      become: true
+      pip:
+          name: arrow
+          state: latest
+    - name: Install fire module
+      become: true
+      pip:
+          name: fire
+          state: latest
+    - name: Install Ramp module
+      become: true
+      pip:
+          name: Ramp
+          state: latest
+    - name: Install Pipenv module
+      become: true
+      pip:
+          name: Pipenv
+          state: latest
+    - name: Install Bob module
+      become: true
+      pip:
+          name: Bob
+          state: latest
+    - name: Install PyBrain module
+      become: true
+      pip:
+          name: PyBrain
+          state: latest
+    - name: Install Keras module
+      become: true
+      pip:
+          name: Keras
+          state: latest
+    - name: Install Dash module
+      become: true
+      pip:
+          name: Dash
+          state: latest
+    - name: Install Matplotlib module
+      become: true
+      pip:
+          name: Matplotlib
+          state: latest
+    - name: Install Seaborn module
+      become: true
+      pip:
+          name: Seaborn
+          state: latest
+    - name: Install SymPy module
+      become: true
+      pip:
+          name: SymPy
+          state: latest
+    - name: Install Chainer module
+      become: true
+      pip:
+          name: Chainer
+          state: latest
+    - name: Install tensorflow module
+      become: true
+      pip:
+        name: tensorflow
+        state: latest
+    - name: Create virtualenv for app
+      become: true
+      pip:
+        name: bottle
+        state: latest
+        virtualenv: /opt/pythonapp/appenv
+    - name: Install Scikit-Learn module
+      become: true
+      pip:
+          name: scikit-Learn
+          state: latest
+    - name: Install numpy module
+      become: true
+      pip:
+          name: numpy
+          state: latest
+    - name: Install keras module
+      become: true
+      pip:
+          name: keras
+          state: latest
+    - name: Install lightgbm module
+      become: true
+      pip:
+          name: lightgbm
+          state: latest
+    - name: Install eli5 module
+      become: true
+      pip:
+          name: eli5
+          state: latest
+    - name: Install scipy module
+      become: true
+      pip:
+          name: scipy
+          state: latest
+    - name: Install theano module
+      become: true
+      pip:
+          name: theano
+          state: latest
+    - name: Install pandas module
+      become: true
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pendulum module
+      become: true
+      pip:
+          name: pendulum
+          state: latest
+    - name: Install pillow module
+      become: true
+      pip:
+          name: pillow
+          state: latest
+    - name: Install Pytest module
+      become: true
+      pip:
+          name: Pytest
+          state: latest
+    - name: Install Requests module
+      become: true
+      pip:
+          name: Requests
+          state: latest
+    - name: Install MoviePy module
+      become: true
+      pip:
+          name: MoviePy
+          state: latest
+    - name: Install thefuck module
+      become: true
+      pip:
+          name: thefuck
+          state: latest

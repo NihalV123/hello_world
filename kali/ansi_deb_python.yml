@@ -1,0 +1,450 @@
+---
+- hosts: wsl
+  become: yes
+  tasks:
+    - name: install tools module
+      become: true
+      pip:
+          name: tools
+          state: latest
+    - name: install virtualenv module
+      become: true
+      pip:
+        name: virtualenv
+        state: latest
+    - name: Create app folder
+      file:
+        name: /opt/pythonapp
+        state: directory
+        recurse: yes
+    - name: Install s3transfer module
+      become: true
+      pip:
+          name: s3transfer
+          state: latest
+    - name: Install boto3 module
+      become: true
+      pip:
+          name: boto3
+          state: latest
+    - name: Install Mutagen module
+      become: true
+      pip:
+          name: Mutagen
+          state: latest
+    - name: Install Urllib3 module
+      become: true
+      pip:
+          name: Urllib3
+          state: latest
+    - name: Install botocore module
+      become: true
+      pip:
+          name: botocore
+          state: latest
+    - name: Install PyMedia module
+      become: true
+      pip:
+          name: pymedia2-pyrana
+          state: latest
+    - name: Install pyOpenGL module
+      become: true
+      pip:
+          name: pyOpenGL
+          state: latest
+    - name: Install six module
+      become: true
+      pip:
+          name: six
+          state: latest
+    - name: Install MySQLdb module
+      become: true
+      pip:
+          name: MySQLdb-wrapper
+          state: latest
+    - name: Install googlemaps module
+      become: true
+      pip:
+          name: googlemaps
+          state: latest
+    - name: Install scrape module
+      become: true
+      pip:
+          name: scrape
+          state: latest
+    - name: Install mechanize module
+      become: true
+      pip:
+          name: mechanize
+          state: latest
+    - name: Install Selenium module
+      become: true
+      pip:
+          name: Selenium
+          state: latest
+    - name: Install pyquery module
+      become: true
+      pip:
+          name: pyquery
+          state: latest
+    - name: Install prws module
+      become: true
+      pip:
+          name: praw
+          state: latest
+    - name: Install pyscreenshot module
+      become: true
+      pip:
+          name: pyscreenshot
+          state: latest
+    - name: Install Pyglet module
+      become: true
+      pip:
+          name: Pyglet
+          state: latest
+    - name: Install Python-dateutil module
+      become: true
+      pip:
+          name: Python-dateutil
+          state: latest
+    - name: Install Docutils module
+      become: true
+      pip:
+          name: Docutils
+          state: latest
+    - name: Install Simplejson module
+      become: true
+      pip:
+          name: Simplejson
+          state: latest
+    - name: Install Colorama module
+      become: true
+      pip:
+          name: Colorama
+          state: latest
+    - name: Install Futures module
+      become: true
+      pip:
+          name: Futures
+          state: latest
+    - name: Install Pytz module
+      become: true
+      pip:
+          name: Pytz
+          state: latest
+    - name: Install Jmespath module
+      become: true
+      pip:
+          name: Jmespath
+          state: latest
+    - name: Install rsa module
+      become: true
+      pip:
+          name: rsa
+          state: latest
+    - name: Install Chardet module
+      become: true
+      pip:
+          name: Chardet
+          state: latest
+    - name: Install Pyasn1 module
+      become: true
+      pip:
+          name: Pyasn1
+          state: latest
+    - name: Install PyYAML module
+      become: true
+      pip:
+          name: PyYAML
+          state: latest
+    - name: Install Idna module
+      become: true
+      pip:
+          name: Idna
+          state: latest
+    - name: Install Certifi module
+      become: true
+      pip:
+          name: Certifi
+          state: latest
+    - name: Install awscli module
+      become: true
+      pip:
+          name: awscli
+          state: latest
+    - name: Install opencv module
+      become: true
+      pip:
+          name: opencv-python
+          state: latest
+    - name: Install pytil module
+      become: true
+      pip:
+          name: pytil
+          state: latest
+    - name: Install NetworkX module
+      become: true
+      pip:
+          name: NetworkX
+          state: latest
+    - name: Install TextBlob module
+      become: true
+      pip:
+          name: TextBlob
+          state: latest
+    - name: Install plotly module
+      become: true
+      pip:
+          name: plotly
+          state: latest
+    - name: Install pydot module
+      become: true
+      pip:
+          name: pydot
+          state: latest
+    - name: Install pmw module
+      become: true
+      pip:
+          name: pmw
+          state: latest
+    - name: Install Mahotas module
+      become: true
+      pip:
+          name: Mahotas
+          state: latest
+    - name: Install zappa module
+      become: true
+      pip:
+          name: zappa
+          state: latest
+    - name: Install ipython module
+      become: true
+      pip:
+          name: ipython
+          state: latest
+    - name: Install imbalanced-learn module
+      become: true
+      pip:
+          name: imbalanced-learn
+          state: latest
+    - name: Install scrapy module
+      become: true
+      pip:
+          name: scrapy
+          state: latest
+    - name: Install xgboost module
+      become: true
+      pip:
+          name: xgboost
+          state: latest
+    - name: Install SQLAlchemy module
+      become: true
+      pip:
+          name: SQLAlchemy
+          state: latest
+    - name: Install Delorean module
+      become: true
+      pip:
+          name: Delorean
+          state: latest
+    - name: Install BeautifulSoup module
+      become: true
+      pip:
+          name: bs4
+          state: latest
+    - name: Install tkinter module
+      become: true
+      pip:
+          name: tk
+          state: latest
+    - name: Install Bokeh module
+      become: true
+      pip:
+          name: Bokeh
+          state: latest
+    - name: Install Poetry module
+      become: true
+      pip:
+          name: Poetry
+          state: latest
+    - name: Install Gensim module
+      become: true
+      pip:
+          name: Gensim
+          state: latest
+    - name: Install cirq module
+      become: true
+      pip:
+          name: cirq
+          state: latest
+    - name: Install luminoth module
+      become: true
+      pip:
+          name: luminoth
+          state: latest
+    - name: Install pandas module
+      become: true
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pytorch module
+      become: true
+      pip:
+          name: torch
+          state: latest
+    - name: Install pytorch2 module
+      become: true
+      pip:
+          name: torchvision
+          state: latest
+    - name: Install pyqt5 module
+      become: true
+      pip:
+          name: pyqt5
+          state: latest
+    - name: Install nltk module
+      become: true
+      pip:
+          name: nltk
+          state: latest
+    - name: Install arrow module
+      become: true
+      pip:
+          name: arrow
+          state: latest
+    - name: Install fire module
+      become: true
+      pip:
+          name: fire
+          state: latest
+    - name: Install Ramp module
+      become: true
+      pip:
+          name: Ramp
+          state: latest
+    - name: Install Pipenv module
+      become: true
+      pip:
+          name: Pipenv
+          state: latest
+    - name: Install Bob module
+      become: true
+      pip:
+          name: Bob
+          state: latest
+    - name: Install PyBrain module
+      become: true
+      pip:
+          name: PyBrain
+          state: latest
+    - name: Install Keras module
+      become: true
+      pip:
+          name: Keras
+          state: latest
+    - name: Install Dash module
+      become: true
+      pip:
+          name: Dash
+          state: latest
+    - name: Install Matplotlib module
+      become: true
+      pip:
+          name: Matplotlib
+          state: latest
+    - name: Install Seaborn module
+      become: true
+      pip:
+          name: Seaborn
+          state: latest
+    - name: Install SymPy module
+      become: true
+      pip:
+          name: SymPy
+          state: latest
+    - name: Install Chainer module
+      become: true
+      pip:
+          name: Chainer
+          state: latest
+    - name: Install tensorflow module
+      become: true
+      pip:
+        name: tensorflow
+        state: latest
+    - name: Create virtualenv for app
+      become: true
+      pip:
+        name: bottle
+        state: latest
+        virtualenv: /opt/pythonapp/appenv
+    - name: Install Scikit-Learn module
+      become: true
+      pip:
+          name: scikit-Learn
+          state: latest
+    - name: Install numpy module
+      become: true
+      pip:
+          name: numpy
+          state: latest
+    - name: Install keras module
+      become: true
+      pip:
+          name: keras
+          state: latest
+    - name: Install lightgbm module
+      become: true
+      pip:
+          name: lightgbm
+          state: latest
+    - name: Install eli5 module
+      become: true
+      pip:
+          name: eli5
+          state: latest
+    - name: Install scipy module
+      become: true
+      pip:
+          name: scipy
+          state: latest
+    - name: Install theano module
+      become: true
+      pip:
+          name: theano
+          state: latest
+    - name: Install pandas module
+      become: true
+      pip:
+          name: pandas
+          state: latest
+    - name: Install pendulum module
+      become: true
+      pip:
+          name: pendulum
+          state: latest
+    - name: Install pillow module
+      become: true
+      pip:
+          name: pillow
+          state: latest
+    - name: Install Pytest module
+      become: true
+      pip:
+          name: Pytest
+          state: latest
+    - name: Install Requests module
+      become: true
+      pip:
+          name: Requests
+          state: latest
+    - name: Install MoviePy module
+      become: true
+      pip:
+          name: MoviePy
+          state: latest
+    - name: Install thefuck module
+      become: true
+      pip:
+          name: thefuck
+          state: latest

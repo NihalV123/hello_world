@@ -1,0 +1,5 @@
+partedUtil mklabel /dev/disks/mpx.vmhba32:C0:T0:L0 gpt
+partedUtil getptbl /dev/disks/mpx.vmhba32:C0:T0:L0
+2000397734
+partedUtil setptbl /dev/disks/mpx.vmhba32:C0:T0:L0 gpt "1 2048 2000397734 AA31E02A400F11DB9590000C2911D1B8 0"
+vmkfstools -C vmfs6 -S EXT-1TB_USB_SSD /dev/disks/mpx.vmhba32:C0:T0:L0:1 
